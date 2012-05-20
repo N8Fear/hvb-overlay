@@ -321,7 +321,11 @@ src_install() {
 	if use startup-notification ; then
 		echo "StartupNotify=true" >> "${ED}/usr/share/applications/${PN}.desktop"
 	fi
-
+	
+    # Required in order to use plugins and even run firefox on hardened.
+	if not use pax_kernel ; then
+    	pax-mark m "${ED}"${MOZILLA_FIVE_HOME}/{firefox,firefox-bin,plugin-container}
+	fi
 
 	# Plugins dir
 	share_plugins_dir
