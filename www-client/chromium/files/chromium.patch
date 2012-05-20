@@ -1,0 +1,137 @@
+diff -Naur chromium-20.0.1105.0.orig/base/message_pump_libevent.cc chromium-20.0.1105.0/base/message_pump_libevent.cc
+--- chromium-20.0.1105.0.orig/base/message_pump_libevent.cc	2012-04-25 12:02:44.066498745 +0200
++++ chromium-20.0.1105.0/base/message_pump_libevent.cc	2012-04-25 12:16:10.705443588 +0200
+@@ -6,7 +6,9 @@
+ 
+ #include <errno.h>
+ #include <fcntl.h>
+-
++#if defined(OS_POSIX)
++#include <unistd.h>
++#endif
+ #include "base/auto_reset.h"
+ #include "base/compiler_specific.h"
+ #include "base/eintr_wrapper.h"
+diff -Naur chromium-20.0.1105.0.orig/chrome/browser/chrome_browser_main_extra_parts_gtk.cc chromium-20.0.1105.0/chrome/browser/chrome_browser_main_extra_parts_gtk.cc
+--- chromium-20.0.1105.0.orig/chrome/browser/chrome_browser_main_extra_parts_gtk.cc	2012-04-25 12:03:04.070497377 +0200
++++ chromium-20.0.1105.0/chrome/browser/chrome_browser_main_extra_parts_gtk.cc	2012-04-25 12:06:40.064482607 +0200
+@@ -5,6 +5,8 @@
+ #include "chrome/browser/chrome_browser_main_extra_parts_gtk.h"
+ 
+ #include <gtk/gtk.h>
++#include <unistd.h>
++#include <sys/types.h>
+ 
+ #include "base/command_line.h"
+ #include "chrome/common/chrome_switches.h"
+diff -Naur chromium-20.0.1105.0.orig/chrome/browser/policy/policy_path_parser_linux.cc chromium-20.0.1105.0/chrome/browser/policy/policy_path_parser_linux.cc
+--- chromium-20.0.1105.0.orig/chrome/browser/policy/policy_path_parser_linux.cc	2012-04-25 12:02:54.615498025 +0200
++++ chromium-20.0.1105.0/chrome/browser/policy/policy_path_parser_linux.cc	2012-04-25 12:16:44.127441302 +0200
+@@ -3,6 +3,8 @@
+ // found in the LICENSE file.
+ 
+ #include <pwd.h>
++#include <sys/types.h>
++#include <unistd.h>
+ 
+ #include "chrome/browser/policy/policy_path_parser.h"
+ 
+diff -Naur chromium-20.0.1105.0.orig/chrome/browser/search_engines/template_url_prepopulate_data.h chromium-20.0.1105.0/chrome/browser/search_engines/template_url_prepopulate_data.h
+--- chromium-20.0.1105.0.orig/chrome/browser/search_engines/template_url_prepopulate_data.h	2012-04-25 12:02:54.992497999 +0200
++++ chromium-20.0.1105.0/chrome/browser/search_engines/template_url_prepopulate_data.h	2012-04-25 12:07:33.988478920 +0200
+@@ -9,6 +9,7 @@
+ #include <stddef.h>
+ #include <string>
+ #include <vector>
++#include <cstddef>
+ 
+ #include "base/string16.h"
+ #include "chrome/browser/search_engines/search_engine_type.h"
+diff -Naur chromium-20.0.1105.0.orig/ipc/ipc_channel.h chromium-20.0.1105.0/ipc/ipc_channel.h
+--- chromium-20.0.1105.0.orig/ipc/ipc_channel.h	2012-04-25 12:03:18.320496403 +0200
++++ chromium-20.0.1105.0/ipc/ipc_channel.h	2012-04-25 12:08:19.979475775 +0200
+@@ -12,6 +12,7 @@
+ #include "base/process.h"
+ #include "ipc/ipc_channel_handle.h"
+ #include "ipc/ipc_message.h"
++#include "sys/types.h"
+ 
+ namespace IPC {
+ 
+diff -Naur chromium-20.0.1105.0.orig/seccompsandbox/library.h chromium-20.0.1105.0/seccompsandbox/library.h
+--- chromium-20.0.1105.0.orig/seccompsandbox/library.h	2012-04-25 12:03:16.852496504 +0200
++++ chromium-20.0.1105.0/seccompsandbox/library.h	2012-04-25 12:15:01.911448291 +0200
+@@ -12,6 +12,7 @@
+ #include <string>
+ #include <string.h>
+ #include <sys/mman.h>
++#include <sys/types.h>
+ 
+ #include "maps.h"
+ 
+diff -Naur chromium-20.0.1105.0.orig/third_party/ots/src/os2.cc chromium-20.0.1105.0/third_party/ots/src/os2.cc
+--- chromium-20.0.1105.0.orig/third_party/ots/src/os2.cc	2012-04-25 12:02:42.819498831 +0200
++++ chromium-20.0.1105.0/third_party/ots/src/os2.cc	2012-04-25 12:08:56.327473291 +0200
+@@ -1,6 +1,7 @@
+ // Copyright (c) 2009 The Chromium Authors. All rights reserved.
+ // Use of this source code is governed by a BSD-style license that can be
+ // found in the LICENSE file.
++#include <cstddef>
+ 
+ #include "os2.h"
+ 
+diff -Naur chromium-20.0.1105.0.orig/third_party/tcmalloc/chromium/src/base/stl_allocator.h chromium-20.0.1105.0/third_party/tcmalloc/chromium/src/base/stl_allocator.h
+--- chromium-20.0.1105.0.orig/third_party/tcmalloc/chromium/src/base/stl_allocator.h	2012-04-25 12:01:23.207504274 +0200
++++ chromium-20.0.1105.0/third_party/tcmalloc/chromium/src/base/stl_allocator.h	2012-04-25 12:09:39.594470331 +0200
+@@ -38,6 +38,7 @@
+ #include <config.h>
+ 
+ #include <stddef.h>   // for std::ptrdiff_t
++#include <cstddef>
+ #include <limits>
+ 
+ #include "base/logging.h"
+diff -Naur chromium-20.0.1105.0.orig/third_party/tcmalloc/chromium/src/base/vdso_support.h chromium-20.0.1105.0/third_party/tcmalloc/chromium/src/base/vdso_support.h
+--- chromium-20.0.1105.0.orig/third_party/tcmalloc/chromium/src/base/vdso_support.h	2012-04-25 12:01:23.182504276 +0200
++++ chromium-20.0.1105.0/third_party/tcmalloc/chromium/src/base/vdso_support.h	2012-04-25 12:10:30.791466831 +0200
+@@ -56,6 +56,7 @@
+ #define BASE_VDSO_SUPPORT_H_
+ 
+ #include <config.h>
++#include <cstddef>
+ #include "base/basictypes.h"
+ #include "base/elf_mem_image.h"
+ 
+diff -Naur chromium-20.0.1105.0.orig/third_party/tcmalloc/chromium/src/common.cc chromium-20.0.1105.0/third_party/tcmalloc/chromium/src/common.cc
+--- chromium-20.0.1105.0.orig/third_party/tcmalloc/chromium/src/common.cc	2012-04-25 12:01:23.133504279 +0200
++++ chromium-20.0.1105.0/third_party/tcmalloc/chromium/src/common.cc	2012-04-25 12:11:05.927464429 +0200
+@@ -33,6 +33,7 @@
+ #include "config.h"
+ #include "common.h"
+ #include "system-alloc.h"
++#include <cstddef>
+ 
+ #if defined(HAVE_UNISTD_H) && defined(HAVE_GETPAGESIZE)
+ #include <unistd.h>                     // for getpagesize
+diff -Naur chromium-20.0.1105.0.orig/third_party/tcmalloc/chromium/src/symbolize.h chromium-20.0.1105.0/third_party/tcmalloc/chromium/src/symbolize.h
+--- chromium-20.0.1105.0.orig/third_party/tcmalloc/chromium/src/symbolize.h	2012-04-25 12:01:23.308504267 +0200
++++ chromium-20.0.1105.0/third_party/tcmalloc/chromium/src/symbolize.h	2012-04-25 12:11:45.206461745 +0200
+@@ -35,6 +35,7 @@
+ 
+ #include "config.h"
+ #ifdef HAVE_STDINT_H
++#include <cstddef>
+ #include <stddef.h>
+ #include <stdint.h>  // for uintptr_t
+ #endif
+diff -Naur chromium-20.0.1105.0.orig/ui/gfx/codec/jpeg_codec.h chromium-20.0.1105.0/ui/gfx/codec/jpeg_codec.h
+--- chromium-20.0.1105.0.orig/ui/gfx/codec/jpeg_codec.h	2012-04-25 12:03:19.074496351 +0200
++++ chromium-20.0.1105.0/ui/gfx/codec/jpeg_codec.h	2012-04-25 12:12:17.603459527 +0200
+@@ -6,6 +6,7 @@
+ #define UI_GFX_CODEC_JPEG_CODEC_H_
+ #pragma once
+ 
++#include <cstddef>
+ #include <stddef.h>
+ #include <vector>
+ 

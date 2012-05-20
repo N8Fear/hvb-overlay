@@ -1,0 +1,11 @@
+--- engines.orig/clearlooks/src/animation.c	2011-12-26 10:16:35.462995343 +0100
++++ engines/clearlooks/src/animation.c	2011-12-26 10:18:22.972987991 +0100
+@@ -28,7 +28,7 @@
+ #include "animation.h"
+ 
+ #ifdef HAVE_WORKING_ANIMATION
+-#include <glib/gtimer.h>
++#include <glib.h>
+ 
+ struct _AnimationInfo {
+ 	GTimer *timer;

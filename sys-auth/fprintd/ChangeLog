@@ -1,0 +1,13 @@
+# ChangeLog for sys-auth/fprintd
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-auth/fprintd/ChangeLog,v 1.2 2011/05/02 14:50:14 halcy0n Exp $
+
+  02 May 2011; Mark Loeser <halcy0n@gentoo.org> fprintd-0.2.0.ebuild:
+  EPREFIX is already appended when using insinto
+
+*fprintd-0.2.0 (27 Oct 2010)
+
+  27 Oct 2010; Michael Weber <xmw@gentoo.org> +fprintd-0.2.0.ebuild,
+  +metadata.xml:
+  Initial import, fixes bug #341747 reported by Jan Buecken <jb.faq@gmx.de>.
+

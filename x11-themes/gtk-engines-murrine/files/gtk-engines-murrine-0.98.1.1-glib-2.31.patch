@@ -1,0 +1,11 @@
+--- src.orig/animation.c	2011-12-26 10:30:27.886938422 +0100
++++ src/animation.c	2011-12-26 10:30:56.109936480 +0100
+@@ -21,7 +21,7 @@
+ #include "animation.h"
+ 
+ #ifdef HAVE_ANIMATION
+-#include <glib/gtimer.h>
++#include <glib.h>
+ 
+ struct _AnimationInfo
+ {

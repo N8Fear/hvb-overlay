@@ -1,0 +1,27 @@
+# ChangeLog for x11-themes/light-themes
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/x11-themes/light-themes/ChangeLog,v 1.4 2012/02/08 23:36:50 sping Exp $
+
+  08 Feb 2012; Sebastian Pipping <sping@gentoo.org>
+  light-themes-0.1.8.25.ebuild, light-themes-0.1.8.26.ebuild,
+  light-themes-0.1.8.27.2.ebuild:
+  Mention GTK 2.x and 3.x in description
+
+*light-themes-0.1.8.27.2 (07 Feb 2012)
+
+  07 Feb 2012; Sebastian Pipping <sping@gentoo.org>
+  +light-themes-0.1.8.27.2.ebuild:
+  Bump to 0.1.8.27.2
+
+*light-themes-0.1.8.26 (23 Jan 2012)
+
+  23 Jan 2012; Sebastian Pipping <sping@gentoo.org>
+  +light-themes-0.1.8.26.ebuild:
+  Bump to 0.1.8.26
+
+*light-themes-0.1.8.25 (13 Nov 2011)
+
+  13 Nov 2011; Sebastian Pipping <sping@gentoo.org>
+  +light-themes-0.1.8.25.ebuild, +metadata.xml:
+  New package
+

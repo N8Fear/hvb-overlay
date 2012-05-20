@@ -1,0 +1,20 @@
+diff -u -r neon-0.29.6/src/ne_socket.c neon-0.29.6_patched/src/ne_socket.c
+--- neon-0.29.6/src/ne_socket.c	2010-10-09 18:07:17.000000000 +0200
++++ neon-0.29.6_patched/src/ne_socket.c	2011-10-07 12:18:22.000000000 +0200
+@@ -1660,6 +1660,7 @@
+
+ int ne_sock_accept_ssl(ne_socket *sock, ne_ssl_context *ctx)
+ {
++    unsigned int status;
+     int ret;
+     ne_ssl_socket ssl;
+
+@@ -1697,7 +1698,7 @@
+     if (ret < 0) {
+         return error_gnutls(sock, ret);
+     }
+-    if (ctx->verify && gnutls_certificate_verify_peers(ssl)) {
++    if (ctx->verify && gnutls_certificate_verify_peers2(ssl, &status)) {
+         set_error(sock, _("Client certificate verification failed"));
+         return NE_SOCK_ERROR;
+     }
