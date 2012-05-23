@@ -86,7 +86,6 @@ src_configure() {
 		--disable-checks
 		$(use_enable libaudit)
 		$(use_enable selinux)
-		$(use_enable selinux libaudit)
 		$(use_enable kernel_linux inotify)
 		$(use_enable kernel_FreeBSD kqueue)
 		$(use_enable systemd)
