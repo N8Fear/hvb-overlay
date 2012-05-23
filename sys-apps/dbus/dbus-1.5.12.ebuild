@@ -84,7 +84,6 @@ src_configure() {
 		$(use_enable debug verbose-mode)
 		--disable-asserts
 		--disable-checks
-		--disable-libaudit
 		$(use_enable libaudit)
 		$(use_enable selinux)
 		$(use_enable selinux libaudit)
