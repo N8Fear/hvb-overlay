@@ -1,0 +1,32 @@
+# ChangeLog for dev-util/itstool
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/dev-util/itstool/ChangeLog,v 1.8 2012/04/29 15:42:46 maekke Exp $
+
+  29 Apr 2012; Markus Meier <maekke@gentoo.org> itstool-1.1.2.ebuild:
+  x86 stable, bug #410611
+
+  18 Apr 2012; Agostino Sarubbo <ago@gentoo.org> itstool-1.1.2.ebuild:
+  Stable for amd64, wrt bug #410611
+
+*itstool-1.1.2 (11 Feb 2012)
+
+  11 Feb 2012; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +itstool-1.1.2.ebuild:
+  Bump, improves error handling.
+
+  14 Jan 2012; Markus Meier <maekke@gentoo.org> itstool-1.1.1.ebuild:
+  x86 stable, bug #393007
+
+  29 Dec 2011; Pacho Ramos <pacho@gentoo.org> itstool-1.1.1.ebuild:
+  amd64 stable, bug 393007
+
+  25 Nov 2011; Alexandre Rostovtsev <tetromino@gentoo.org>
+  itstool-1.1.1.ebuild:
+  Fix LICENSE (bug #391861, thanks to Hanno Boeck for reporting).
+
+*itstool-1.1.1 (24 Oct 2011)
+
+  24 Oct 2011; Alexandre Rostovtsev <tetromino@gentoo.org>
+  +itstool-1.1.1.ebuild, +metadata.xml:
+  New package, moved from the gnome overlay. Needed for gnome-3.2.
+
