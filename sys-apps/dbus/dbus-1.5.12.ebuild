@@ -63,7 +63,7 @@ src_prepare() {
 		-e '/"dispatch"/d' \
 		bus/test-main.c || die
 	
-	epatch "${FILESDIR}"/dbus-1.5.12-libaudit.patch
+	epatch "${FILESDIR}"/dbus-libaudit.patch
 
 	# required for asneeded patch but also for bug 263909, cross-compile so
 	# don't remove eautoreconf
