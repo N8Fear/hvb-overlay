@@ -31,8 +31,7 @@ PRELIBS="libs/obsdcompat"
 
 src_prepare() {
 	has_version '>=app-text/poppler-0.18.0:0' && epatch "${FILESDIR}/poppler018.patch"
-	has_version '>=app-text/poppler-0.20.0:0' && epatch
-	"${FILESDIR}/luatex-poppler-0.20.0.patch"
+	has_version '>=app-text/poppler-0.20.0:0' && epatch	"${FILESDIR}/luatex-poppler-0.20.0.patch"
 	S="${S}/build-aux" elibtoolize --shallow
 }
 
