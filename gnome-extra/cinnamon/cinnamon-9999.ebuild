@@ -137,9 +137,9 @@ src_prepare() {
 	# Make networkmanager optional, bug #398593
 	epatch "${FILESDIR}/${PN}-1.3.1-optional-networkmanager.patch"
 
-	epatch "${FILESDIR}/powerapplet.patch"
+#	epatch "${FILESDIR}/powerapplet.patch"
 	
-	epatch "${FILESDIR}/settings.patch" 
+#	epatch "${FILESDIR}/settings.patch" 
 
 	# Gentoo uses /usr/libexec
 	sed -e "s:/usr/lib/gnome-session/gnome-session-check-accelerated:${EPREFIX}/usr/libexec/gnome-session-check-accelerated:" \
