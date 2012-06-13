@@ -161,8 +161,9 @@ src_prepare() {
 		rm -rv files/usr/share/cinnamon/applets/network@cinnamon.org || die
 	fi
 
-	eautoreconf
+	eaclocal
 	elibtoolize
+	eautoreconf
 
 	gnome2_src_prepare
 

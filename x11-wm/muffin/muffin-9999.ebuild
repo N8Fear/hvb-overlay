@@ -71,7 +71,7 @@ RDEPEND="${COMMON_DEPEND}
 S="${WORKDIR}/muffin"
 
 src_prepare() {
-	aclocal 
+	eaclocal 
 	elibtoolize
 	eautoreconf
 
