@@ -162,6 +162,8 @@ src_prepare() {
 	fi
 
 	eautoreconf
+	elibtoolize
+
 	gnome2_src_prepare
 
 	# Drop G_DISABLE_DEPRECATED for sanity on glib upgrades; bug #384765
