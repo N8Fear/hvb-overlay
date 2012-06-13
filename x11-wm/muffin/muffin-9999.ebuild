@@ -20,7 +20,7 @@ HOMEPAGE="http://cinnamon.linuxmint.com/"
 #SRC_URI="http://github.com/linuxmint/muffin"
 # 3.3 Branch
 #EGIT_REPO_URI="https://github.com/rat4/muffin.git"
-EGIT_BRANCH="mutter_3.4.0"
+#EGIT_BRANCH="mutter_3.4.0"
 
 #normal master
 EGIT_REPO_URI="http://github.com/linuxmint/muffin"
