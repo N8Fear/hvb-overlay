@@ -37,8 +37,7 @@ DOCS=( NEWS )
 src_prepare() {
 	sed -i -e "/minimum-uid/s:500:1000:" data/users.conf || die
 	sed -i -e "s:gtk+-3.0:gtk+-2.0:" configure.ac || die
-    sed -i -e "s:getgroups:lightdm_getgroups:" tests/src/libsystem.c ||die
-
+	sed -i -e "s/getgroups/lightdm_/" tests/src/libsystem.c || die
 
 	epatch "${FILESDIR}"/session-wrapper-${PN}.patch
 	epatch "${FILESDIR}/${PN}"-1.2.0-fix-configure.patch
