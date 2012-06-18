@@ -1,6 +1,7 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: Exp $
+EAPI="2"
 
 MY_P="${PN}_v${PV//./_}"
 SRC_URI="http://www.didierstevens.com/files/software/${MY_P}.zip"
@@ -11,7 +12,6 @@ LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="amd64 arm ppc ppc64 x86"
 IUSE=""
-EAPI="2"
 RDEPEND=""
 DEPEND="app-arch/unzip"
 
