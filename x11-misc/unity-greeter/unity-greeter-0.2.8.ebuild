@@ -4,8 +4,8 @@
 
 EAPI=4
 
-DESCRIPTION="LightDM GTK+ Greeter"
-HOMEPAGE="http://launchpad.net/lightdm-gtk-greeter"
+DESCRIPTION="LightDM Unity Greeter"
+HOMEPAGE="https://launchpad.net/unity-greeter"
 SRC_URI="https://launchpad.net/unity-greeter/0.2/0.2.8/+download/unity-greeter-0.2.8.tar.gz"
 
 #http://launchpad.net/lightdm-gtk-greeter/trunk/${PV}/+download/${P}.tar.gz branding? (
