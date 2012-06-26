@@ -1,6 +1,91 @@
 # ChangeLog for net-analyzer/wireshark
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.328 2012/04/01 00:13:37 sping Exp $
+# $Header: /var/cvsroot/gentoo-x86/net-analyzer/wireshark/ChangeLog,v 1.352 2012/06/26 20:30:39 jer Exp $
+
+*wireshark-1.8.0 (26 Jun 2012)
+
+  26 Jun 2012; Jeroen Roovers <jer@gentoo.org> +wireshark-1.8.0.ebuild:
+  Version bump (bug #422485).
+
+  19 Jun 2012; Jeroen Roovers <jer@gentoo.org>
+  -files/wireshark-1.6.4-build.patch, -files/wireshark-1.6.4-doc-build.patch,
+  -wireshark-1.6.6.ebuild, -wireshark-1.6.7.ebuild:
+  Old.
+
+  12 Jun 2012; Zac Medico <zmedico@gentoo.org> wireshark-1.6.6.ebuild,
+  wireshark-1.6.7.ebuild, wireshark-1.6.8.ebuild:
+  inherit user for enewgroup, and remove unused libtool inherit
+
+  08 Jun 2012; Brent Baude <ranger@gentoo.org> wireshark-1.6.8.ebuild:
+  Marking wireshark-1.6.8 ppc for bug 417203
+
+  29 May 2012; Brent Baude <ranger@gentoo.org> wireshark-1.6.8.ebuild:
+  Marking wireshark-1.6.8 ppc64 for bug 417203
+
+  26 May 2012; Raúl Porcel <armin76@gentoo.org> wireshark-1.6.8.ebuild:
+  alpha/ia64/sparc stable wrt #417203
+
+  24 May 2012; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.8.ebuild:
+  Stable for HPPA (bug #417203).
+
+  23 May 2012; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.8.ebuild:
+  Stable for amd64, wrt bug #417203
+
+  23 May 2012; Jeff Horelick <jdhore@gentoo.org> wireshark-1.6.8.ebuild:
+  marked x86 per bug 417203
+
+*wireshark-1.6.8 (23 May 2012)
+
+  23 May 2012; Jeroen Roovers <jer@gentoo.org> +wireshark-1.6.8.ebuild:
+  Version bump (bug #417203).
+
+  23 May 2012; Brent Baude <ranger@gentoo.org> wireshark-1.6.7.ebuild:
+  Marking wireshark-1.6.7 ppc64 for bug 415585
+
+  21 May 2012; Pawel Hajdan jr <phajdan.jr@gentoo.org> wireshark-1.6.7.ebuild:
+  x86 stable wrt bug #415585
+
+  17 May 2012; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.7.ebuild:
+  Stable for HPPA (bug #415585).
+
+  13 May 2012; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.7.ebuild:
+  Stable for amd64, wrt bug #415585
+
+  12 May 2012; Jeroen Roovers <jer@gentoo.org> -wireshark-1.4.9.ebuild,
+  -wireshark-1.6.2.ebuild, -wireshark-1.6.4.ebuild:
+  Old.
+
+  10 May 2012; Brent Baude <ranger@gentoo.org> wireshark-1.6.6.ebuild:
+  Marking wireshark-1.6.6 ppc64 for bug 410871
+
+  04 May 2012; Jeff Horelick <jdhore@gentoo.org> wireshark-1.4.9.ebuild,
+  wireshark-1.6.2.ebuild, wireshark-1.6.4.ebuild, wireshark-1.6.6.ebuild,
+  wireshark-1.6.7.ebuild:
+  dev-util/pkgconfig -> virtual/pkgconfig
+
+  16 Apr 2012; Brent Baude <ranger@gentoo.org> wireshark-1.6.6.ebuild:
+  Marking wireshark-1.6.6 ppc for bug 410871
+
+  15 Apr 2012; Raúl Porcel <armin76@gentoo.org> wireshark-1.6.6.ebuild:
+  alpha/ia64/sparc stable wrt #410871
+
+  10 Apr 2012; Andreas Schuerch <nativemad@gentoo.org> wireshark-1.6.6.ebuild:
+  x86 stable, see bug 410871. Thanks all.
+
+*wireshark-1.6.7 (10 Apr 2012)
+
+  10 Apr 2012; Jeroen Roovers <jer@gentoo.org> +wireshark-1.6.7.ebuild:
+  Version bump (bug #411473).
+
+  10 Apr 2012; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.6.ebuild,
+  +files/wireshark-1.6.6-gtk-pcap.patch:
+  Fix building with USE="gtk -pcap" by Andreas Schürch (bug #411175).
+
+  07 Apr 2012; Jeroen Roovers <jer@gentoo.org> wireshark-1.6.6.ebuild:
+  Stable for HPPA (bug #410871).
+
+  06 Apr 2012; Agostino Sarubbo <ago@gentoo.org> wireshark-1.6.6.ebuild:
+  Stable for amd64, wrt bug #410871
 
 *wireshark-1.6.6 (01 Apr 2012)
 
