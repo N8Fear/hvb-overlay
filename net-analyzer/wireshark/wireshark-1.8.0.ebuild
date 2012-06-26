@@ -47,7 +47,7 @@ DEPEND="${RDEPEND}
 	sys-devel/bison
 	sys-apps/sed
 	sys-devel/flex
-	!!<net-analyzer/wireshark-1.8.0"
+	"
 
 S=${WORKDIR}/${MY_P}
 
