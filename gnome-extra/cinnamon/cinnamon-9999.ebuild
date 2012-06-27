@@ -17,7 +17,7 @@ EGIT_REPO_URI="https://github.com/linuxmint/Cinnamon.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+bluetooth +networkmanager"
+IUSE="+bluetooth"
 KEYWORDS="~amd64 ~x86"
 
 # gnome-desktop-2.91.2 is needed due to header changes, db82a33 in gnome-desktop
@@ -61,10 +61,7 @@ COMMON_DEPEND=">=dev-libs/glib-2.29.10:2
 	>=x11-libs/libXfixes-5.0
 	x11-apps/mesa-progs
 
-	bluetooth? ( >=net-wireless/gnome-bluetooth-3.1.0[introspection] )
-	networkmanager? (
-		gnome-base/libgnome-keyring
-		>=net-misc/networkmanager-0.8.999[introspection] )"
+	bluetooth? ( >=net-wireless/gnome-bluetooth-3.1.0[introspection] )"
 # Runtime-only deps are probably incomplete and approximate.
 # Each block:
 # 2. Introspection stuff + dconf needed via imports.gi.*
@@ -101,9 +98,8 @@ RDEPEND="${COMMON_DEPEND}
 	dev-python/pygtk
 	gnome-base/gnome-menus:0[python]
 
-	networkmanager? (
-		net-misc/mobile-broadband-provider-info
-		sys-libs/timezone-data )"
+	net-misc/mobile-broadband-provider-info
+	sys-libs/timezone-data"
 DEPEND="${COMMON_DEPEND}
 	>=sys-devel/gettext-0.17
 	>=dev-util/pkgconfig-0.22
@@ -123,7 +119,6 @@ pkg_setup() {
 		--disable-schemas-compile
 		--disable-jhbuild-wrapper-script
 		$(use_with bluetooth)
-		$(use_enable networkmanager)
 		--with-ca-certificates=${EPREFIX}/etc/ssl/certs/ca-certificates.crt
 		BROWSER_PLUGIN_DIR=${EPREFIX}/usr/$(get_libdir)/nsbrowser/plugins"
 	python_set_active_version 2
@@ -134,8 +129,6 @@ src_prepare() {
 	# Fix automagic gnome-bluetooth dep, bug #398145
 	epatch "${FILESDIR}/${PN}-1.1.3-automagic-gnome-bluetooth.patch"
 
-	# Make networkmanager optional, bug #398593
-	epatch "${FILESDIR}/${PN}-1.3.1-optional-networkmanager.patch"
 	epatch "${FILESDIR}/settings.patch"
 
 	# Gentoo uses /usr/libexec
@@ -158,9 +151,6 @@ src_prepare() {
 		rm -rv files/usr/share/cinnamon/applets/bluetooth@cinnamon.org || die
 	fi
 
-	if ! use networkmanager; then
-		rm -rv files/usr/share/cinnamon/applets/network@cinnamon.org || die
-	fi
 
 	eaclocal
 	elibtoolize
