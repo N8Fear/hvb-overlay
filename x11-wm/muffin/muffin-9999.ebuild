@@ -72,7 +72,6 @@ S="${WORKDIR}/muffin"
 
 src_prepare() {
 	eaclocal 
-	elibtoolize
 	eautoreconf
 
 }

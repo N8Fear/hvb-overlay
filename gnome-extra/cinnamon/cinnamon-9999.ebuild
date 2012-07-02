@@ -152,7 +152,6 @@ src_prepare() {
 
 
 	eaclocal
-	elibtoolize
 	eautoreconf
 
 	gnome2_src_prepare
