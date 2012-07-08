@@ -23,7 +23,8 @@ RDEPEND="dev-haskell/mtl[profile?]
 		>=dev-haskell/x11-1.5[profile?] <dev-haskell/x11-1.7[profile?]
 		>=dev-lang/ghc-6.10.1"
 DEPEND="${RDEPEND}
-		>=dev-haskell/cabal-1.2"
+		>=dev-haskell/cabal-1.2
+		>=x11-wm/xmonad-contrib-0.10"
 PDEPEND="default-term? ( x11-terms/xterm )
 	x11-apps/xmessage
 "
