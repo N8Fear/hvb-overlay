@@ -30,6 +30,6 @@ DEPEND="${RDEPEND}
 		dev-haskell/utf8-string
 		>=dev-haskell/x11-1.4
 		dev-haskell/x11-xft
-		>=dev-haskell/xmonad-0.10
-		>=dev-haskell/xmonad-contrib-0.10
+		>=x11-wm/xmonad-0.10
+		>=x11-wm/xmonad-contrib-0.10
 		>=dev-lang/ghc-6.10.1"
