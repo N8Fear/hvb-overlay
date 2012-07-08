@@ -24,6 +24,12 @@ RDEPEND="dev-haskell/mtl[profile?]
 		>=dev-lang/ghc-6.10.1"
 DEPEND="${RDEPEND}
 		>=dev-haskell/cabal-1.2
+		dev-haskell/configfile
+		dev-haskell/glade
+		dev-haskell/regex-compat
+		dev-haskell/x11-xft
+		dev-haskell/gtk
+
 		>=x11-wm/xmonad-contrib-0.10"
 PDEPEND="default-term? ( x11-terms/xterm )
 	x11-apps/xmessage
