@@ -20,7 +20,7 @@ DEPEND="x11-libs/gtk+:3
 	>=x11-misc/lightdm-1.2.2
 	>=dev-libs/libindicator-0.4.1-r300
 	"
-RDEPEND="!!<x11-misc/lightdm-1.333.1
+RDEPEND="!!<x11-misc/lightdm-1.3.1
 	x11-libs/gtk+:3
 	>=x11-misc/lightdm-1.2.2
 	x11-themes/gnome-themes-standard
