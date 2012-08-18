@@ -95,8 +95,7 @@ pkg_setup() {
 src_prepare() {
 	# Regenerate marshalers to allow building with <glib-2.32
 	rm -v cut-n-paste/gimpcellrenderertoggle/gimpwidgetsmarshal.{c,h} \
-		cut-n-paste/toolbar-editor/eggmarshalers.{c,h} \
-		libview/ev-view-marshal.{c,h} || die "rm failed"
+		cut-n-paste/toolbar-editor/eggmarshalers.{c,h} || die "rm failed"
 
 	# Fix .desktop file so menu item shows up
 	epatch "${FILESDIR}"/${PN}-0.7.1-display-menu.patch
