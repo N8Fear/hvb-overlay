@@ -100,9 +100,6 @@ src_prepare() {
 	# Fix .desktop file so menu item shows up
 	epatch "${FILESDIR}"/${PN}-0.7.1-display-menu.patch
 
-	# glib-2.32 restructured dep libs in pkg-config files, #414065
-	epatch "${FILESDIR}/${P}-glib-gold.patch"
-
 	gnome2_src_prepare
 
 	AT_NOELIBTOOLIZE=yes eautoreconf
