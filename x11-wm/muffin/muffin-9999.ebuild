@@ -34,7 +34,6 @@ COMMON_DEPEND=">=x11-libs/pango-1.2[X,introspection?]
 	>=x11-libs/cairo-1.10[X]
 	x11-libs/gdk-pixbuf:2
 	>=x11-libs/gtk+-2.91.7:3[introspection?]
-	>=gnome-base/gconf-2:2
 	>=dev-libs/glib-2.14:2
 	>=media-libs/clutter-1.7.5:1.0
 	>=media-libs/libcanberra-0.26[gtk3]
@@ -80,7 +79,6 @@ pkg_setup() {
 	DOCS="AUTHORS ChangeLog HACKING MAINTAINERS NEWS README* *.txt doc/*.txt"
 	G2CONF="${G2CONF}
 		--disable-static
-		--enable-gconf
 		--enable-shape
 		--enable-sm
 		--enable-startup-notification
