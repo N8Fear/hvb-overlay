@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit eutils
+inherit eutils flag-o-matic autotools
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="git://github.com/fenrus75/powertop.git"
 	inherit git-2
@@ -36,21 +36,19 @@ RDEPEND="
 DOCS=( TODO README )
 
 src_prepare() {
-	sed -i -r \
-		-e '/^powertop_CXXFLAGS/s: (-O2|-g|-I/usr/include/) : :g' \
-		src/Makefile.in || die
+	append-flags -fPIC
+	econf
+	sed -i "s/CPPFLAGS/CXXFLAGS/" Makefile 
+	sed -i "s/CPPFLAGS/CXXFLAGS/" src/Makefile 
 }
 
-src_configure() {
-	export ac_cv_search_delwin=$(usex unicode -lncursesw no)
-	default
-}
 
 src_compile() {
-	emake -C src csstoh
-	cp "${FILESDIR}"/csstoh src/ || die
-	emake
+	append-flags -fPIC
+	emake || die "Make failed!"
 }
+
+
 
 src_install() {
 	default
