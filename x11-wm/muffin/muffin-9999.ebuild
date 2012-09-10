@@ -19,11 +19,10 @@ HOMEPAGE="http://cinnamon.linuxmint.com/"
 #SRC_URI="https://github.com/linuxmint/muffin/tarball/${PV} -> ${P}.tar.gz"
 #SRC_URI="http://github.com/linuxmint/muffin"
 # 3.3 Branch
-#EGIT_REPO_URI="https://github.com/rat4/muffin.git"
-#EGIT_BRANCH="rat4-mutter_3.4.0"
 
 #normal master
 EGIT_REPO_URI="http://github.com/linuxmint/muffin"
+EGIT_BRANCH="rat4-mutter_3.4.0"
 
 LICENSE="GPL-2"
 SLOT="0"
