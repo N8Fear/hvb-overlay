@@ -80,7 +80,7 @@ src_prepare() {
 		"${FILESDIR}/${PN}-3.4.2-backtrace.patch"
 
 	# bug #396417
-	epatch "${FILESDIR}/${PN}-glib-fix.patch"
+	# epatch "${FILESDIR}/${PN}-glib-fix.patch"
 
 	# bug  #408025
 	epatch "${FILESDIR}/${P}-convert-path.patch"
