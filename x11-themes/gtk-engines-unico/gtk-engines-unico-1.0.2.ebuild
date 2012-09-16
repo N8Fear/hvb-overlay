@@ -11,7 +11,8 @@ MY_PV=${PV/_p/+r}
 DESCRIPTION="Unico Gtk+ 3 theme engine"
 HOMEPAGE="https://launchpad.net/unico"
 
-SRC_URI="http://archive.ubuntu.com/ubuntu/pool/main/g/gtk3-engines-unico/gtk3-engines-unico_1.0.2.orig.tar.gz"
+SRC_URI="http://archive.ubuntu.com/ubuntu/pool/main/g/gtk3-engines-unico/gtk3-engines-unico_1.0.2+r139-0ubuntu2.tar.gz"
+#http://archive.ubuntu.com/ubuntu/pool/main/g/gtk3-engines-unico/gtk3-engines-unico_1.0.2.orig.tar.gz"
 #http://archive.ubuntu.com/ubuntu/pool/main/g/gtk3-engines-unico/gtk3-engines-unico_1.0.1-0ubuntu5.diff.gz"
 #"https://launchpad.net/ubuntu/oneiric/+source/gtk3-engines-unico/${MY_PV}-0ubuntu1/+files/gtk3-engines-unico_${MY_PV}.orig.tar.gz"
 S="${WORKDIR}/${MY_PN}-${MY_PV}"
