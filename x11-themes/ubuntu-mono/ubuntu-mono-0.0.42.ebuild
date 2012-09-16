@@ -32,7 +32,7 @@ src_install() {
 	dodir /usr/share/icons
 	#cp -r LoginIcons ${PN}* "${D}"/usr/share/icons || die "install failed."
 	
-	cp -r ubuntu-mono-0.0.39/ubuntu-mono-*  "${D}"/usr/share/icons || die "install failed."
+	cp -r ubuntu-mono-${PV}/ubuntu-mono-*  "${D}"/usr/share/icons || die "install failed."
 
 #	dodoc "${S}"/debian/{changelog,copyright} || die "install doc failed."
 }
