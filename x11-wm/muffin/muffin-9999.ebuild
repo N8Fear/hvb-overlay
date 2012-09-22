@@ -21,8 +21,15 @@ HOMEPAGE="http://cinnamon.linuxmint.com/"
 # 3.3 Branch
 
 #normal master
+
+#UNSTABLE=has_version ">=gnome-base/gnome-shell-3.5.0" 
+
 EGIT_REPO_URI="http://github.com/linuxmint/muffin"
-EGIT_BRANCH="rat4-mutter_3.4.0"
+
+#if !UNSTABLE  ; then
+#	EGIT_BRANCH="rat4-mutter_3.4.0"
+#fi
+
 
 LICENSE="GPL-2"
 SLOT="0"
