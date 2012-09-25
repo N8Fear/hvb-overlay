@@ -17,7 +17,7 @@ DEPEND=""
 RDEPEND="x11-themes/gtk-engines-murrine
 	gtk3? ( x11-themes/gtk-engines-unico )"
 
-S=$(WORKDIR)/$(PN)
+S=${WORKDIR}/${PN}
 
 src_install() {
 	insinto /usr/share/themes
