@@ -47,6 +47,7 @@ src_prepare() {
 	sed -i -e "s/ALL_LINGUAS=.*/ALL_LINGUAS=\"${linguas}\"/g" configure.in
 
 	epatch "${FILESDIR}"/${PN}-0.29.6-no-ssl-check.patch
+	epatch "${FILESDIR}"/verify_peers2.patch
 	AT_M4DIR="macros" eautoreconf
 
 	elibtoolize
@@ -110,3 +111,4 @@ pkg_postinst() {
 	ewarn "You may also have to downgrade any package that has not been"
 	ewarn "ported to the new API yet."
 }
+
