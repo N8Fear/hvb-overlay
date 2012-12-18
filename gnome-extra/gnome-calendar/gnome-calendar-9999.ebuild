@@ -40,7 +40,7 @@ src_prepare() {
 	if ! use v4l; then
 		touch src/*.vala
 	fi
-	if [[ ${PV} = 9999 ]] || ! use v4l; then
+	if [[ ${PV} = 9999 ]]; then
 		vala_src_prepare
 	fi
 	gnome2_src_prepare
