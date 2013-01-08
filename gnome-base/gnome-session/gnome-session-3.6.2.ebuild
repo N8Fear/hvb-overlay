@@ -5,7 +5,7 @@
 EAPI="5"
 GCONF_DEBUG="yes"
 
-inherit gnome2
+inherit gnome2 eutils
 
 DESCRIPTION="Gnome session manager"
 HOMEPAGE="http://www.gnome.org/"
@@ -72,7 +72,7 @@ DEPEND="${COMMON_DEPEND}
 src_prepare() {
 	# Silence errors due to weird checks for libX11
 	sed -e 's/\(PANGO_PACKAGES="\)pangox/\1/' -i configure.ac configure || die
-	epatch $(FILESDIR)/suspend.patch 
+	epatch "${FILESDIR}/suspend.patch"
 	gnome2_src_prepare
 }
 
