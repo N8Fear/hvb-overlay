@@ -101,11 +101,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-<<<<<<< HEAD
 	if has_version '>=dev-libs/json-c-0.9-r1'; then
-=======
-	if has_version '>=dev-libs/json-c-0.9-r2'; then
->>>>>>> 1739f393bf4513bcad03391f0fc7c266de2e7ceb
 		sed -i -e '/PKG_CHECK_MODULES/s:\<json\>:json-c:g' \
 			configure.ac || die
 		eautoreconf
