@@ -1,0 +1,53 @@
+--- hw/xfree86/os-support/linux/lnx_video.c
++++ hw/xfree86/os-support/linux/lnx_video.c
+@@ -488,6 +488,8 @@
+     int fd;
+     unsigned int ioBase_phys;
+ #endif
++    if (xf86Info.noHwAccess)
++        return TRUE;
+ 
+     if (ExtendedEnabled)
+         return TRUE;
+--- hw/xfree86/common/xf86Privstr.h
++++ hw/xfree86/common/xf86Privstr.h
+@@ -112,6 +112,8 @@
+     MessageType dri2From;
+ 
+     Bool autoAddGPU;
++
++    Bool noHwAccess;
+ } xf86InfoRec, *xf86InfoPtr;
+ 
+ #ifdef DPMSExtension
+--- hw/xfree86/common/xf86Globals.c
++++ hw/xfree86/common/xf86Globals.c
+@@ -137,6 +137,7 @@
+ #else
+     .autoAddGPU = FALSE,
+ #endif
++    .noHwAccess = TRUE,
+ };
+ 
+ const char *xf86ConfigFile = NULL;
+--- hw/xfree86/common/xf86Init.c
++++ hw/xfree86/common/xf86Init.c
+@@ -1451,6 +1451,10 @@
+         xf86Info.ShareVTs = TRUE;
+         return 1;
+     }
++    if (!strcmp(argv[i], "-hwaccess")) {
++        xf86Info.noHwAccess = FALSE;
++        return 1;
++    }
+ 
+     /* OS-specific processing */
+     return xf86ProcessArgument(argc, argv, i);
+@@ -1524,6 +1528,7 @@
+     ErrorF
+         ("-novtswitch            don't automatically switch VT at reset & exit\n");
+     ErrorF("-sharevts              share VTs with another X server\n");
++    ErrorF("-hwaccess            access hardware ports directly\n");
+     /* OS-specific usage */
+     xf86UseMsg();
+     ErrorF("\n");
