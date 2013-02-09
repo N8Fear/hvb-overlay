@@ -19,7 +19,7 @@ SRC_URI=""
 LICENSE="CC-Attribution-ShareAlike-3.0"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~ppc-aix ~amd64-fbsd ~sparc-fbsd ~x86-fbsd ~x64-freebsd ~x86-freebsd ~hppa-hpux ~ia64-hpux ~x86-interix ~amd64-linux ~ia64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
-IUSE="vim zsh doc python2_7 python3_3"
+IUSE="vim zsh doc python_target_python2_7 python_target_python3_3"
 
 #if LIVE
 SRC_URI=
@@ -51,10 +51,10 @@ src_install() {
 	font_src_install
 	if use vim ; then
 		insinto /usr/share/vim/vimfiles/plugin
-		if use python2_7; then
+		if use python_target_python2_7; then
 			doins powerline-python2_7/bindings/vim/powerline.vim
 		fi
-		if use python3_3; then
+		if use python_target_python3_3; then
 			doins powerline-python3_3/bindings/vim/powerline.vim
 		fi
 	fi
