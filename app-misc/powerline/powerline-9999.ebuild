@@ -51,7 +51,12 @@ src_install() {
 	font_src_install
 	if use vim ; then
 		insinto /usr/share/vim/vimfiles/plugin
-		doins powerline/bindings/vim/powerline.vim
+		if use python2_7; then
+			doins powerline-python2_7/bindings/vim/powerline.vim
+		fi
+		if use python3_3; then
+			doins powerline-python3_3/bindings/vim/powerline.vim
+		fi
 	fi
 	# rm powerline/bindings/vim/powerline.vim
 	if use zsh ; then
