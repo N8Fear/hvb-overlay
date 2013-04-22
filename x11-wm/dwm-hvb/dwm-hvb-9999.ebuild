@@ -10,7 +10,7 @@ inherit eutils savedconfig toolchain-funcs git-2
 
 DESCRIPTION="a dynamic window manager for X11"
 HOMEPAGE="https://bitbucket.org/pks/dwm"
-EGIT_REPO_URI="https://bitbucket.org/pks/dwm.git"
+EGIT_REPO_URI="https://bitbucket.org/pks/N8Fear/dwm.git"
 
 LICENSE="MIT"
 SLOT="0"
