@@ -33,7 +33,7 @@ RDEPEND="
 	~app-admin/system-config-printer-common-${PV}
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	>=dev-python/pycups-1.9.60[${PYTHON_USEDEP}]
-	dev-python/pygobject:3[${PYTHON_USEDEP}]
+	introspection? ( dev-python/pygobject:3[${PYTHON_USEDEP}] )
 	x11-libs/gtk+:3[introspection?]
 	x11-libs/libnotify[introspection?]
 	x11-libs/pango[introspection?]
