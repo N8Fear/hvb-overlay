@@ -1,0 +1,4 @@
+"Virtual PCD"
+DEVICENAME   /dev/null
+LIBPATH      /usr/lib64/readers/usb/serial/libvpcd.so
+CHANNELID    0x8C7B
