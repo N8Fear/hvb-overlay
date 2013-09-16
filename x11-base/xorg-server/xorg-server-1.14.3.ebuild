@@ -5,7 +5,8 @@
 EAPI=5
 
 XORG_DOC=doc
-#XORG_EAUTORECONF=yes
+# avoid maintainer mode, bug #484634
+XORG_EAUTORECONF=yes
 inherit xorg-2 multilib versionator flag-o-matic
 EGIT_REPO_URI="git://anongit.freedesktop.org/git/xorg/xserver"
 
@@ -115,7 +116,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.12-disable-acpi.patch
 	"${FILESDIR}"/${PN}-1.12-ia64-fix_inx_outx.patch
 	"${FILESDIR}"/${PN}-1.12-unloadsubmodule.patch
-	"${FILESDIR}"/${PN}-1.14-kdrive-out-of-bounds-array-access.patch
 	"${FILESDIR}"/xorg-nohwaccess.patch
 )
 
