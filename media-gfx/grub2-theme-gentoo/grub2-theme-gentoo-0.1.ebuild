@@ -20,12 +20,12 @@ DEPEND="=media-gfx/grub2-icons-${PV}"
 RDEPEND="${DEPEND}"
 
 src_install() {
-	dodir /boot/gru2/themes/gentoo/ || die
+	dodir /boot/grub/themes/gentoo/ || die
 
 	insinto /boot/grub/themes/gentoo/
 	doins gentoo/*
 
-	dosym /boot/grub/themes/icons /boot/grub2/themes/gentoo/icons
+	dosym /boot/grub/themes/icons /boot/grub/themes/gentoo/icons
 
 
 	elog "To enable this grub2 theme you will need to edit /etc/default/grub"
