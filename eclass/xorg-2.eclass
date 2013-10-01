@@ -425,7 +425,7 @@ xorg-2_flags_setup() {
 	# Win32 require special define
 	[[ ${CHOST} == *-winnt* ]] && append-cppflags -DWIN32 -D__STDC__
 	# hardened ldflags
-	[[ ${PN} = xorg-server || -n ${DRIVER} ]] && append-ldflags -Wl,-z,lazy,-z,relro,-z,now
+	[[ ${PN} = xorg-server || -n ${DRIVER} ]] && append-ldflags -Wl,-z,relro,-z,now
 
 	# Quite few libraries fail on runtime without these:
 	if has static-libs ${IUSE//+}; then
