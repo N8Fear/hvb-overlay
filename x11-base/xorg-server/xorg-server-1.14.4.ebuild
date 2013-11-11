@@ -116,7 +116,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.12-disable-acpi.patch
 	"${FILESDIR}"/${PN}-1.12-ia64-fix_inx_outx.patch
 	"${FILESDIR}"/${PN}-1.12-unloadsubmodule.patch
-	"${FILESDIR}"/${PN}-1.12-cve-2013-4396.patch
 	"${FILESDIR}"/xorg-nohwaccess.patch
 )
 
