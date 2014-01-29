@@ -6,8 +6,6 @@ EAPI="5"
 
 inherit eutils savedconfig toolchain-funcs git-2
 
-
-
 DESCRIPTION="a statusbar for dwm"
 HOMEPAGE="https://bitbucket.org/N8Fear/dstatus"
 EGIT_REPO_URI="https://bitbucket.org/N8Fear/dstatus.git"
@@ -17,26 +15,10 @@ SLOT="0"
 KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
 IUSE=""
 
-DEPEND="x11-libs/libX11
-		net-wireless/wireless-tools
-		"
-#RDEPEND="${DEPEND}"
+DEPEND="x11-libs/libX11"
 
-#src_prepare() {
-#	restore_config config.h
-#	epatch_user
-#}
-
-#src_compile() {
-#	if use xinerama; then
-#		emake CC=$(tc-getCC)
-#	else
-#		emake CC=$(tc-getCC) XINERAMAFLAGS="" XINERAMALIBS=""
-#	fi
-#}
-
-#src_install() {
-#	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
-#	dodoc README
-#}
-
+src_prepare() {
+	restore_config config.h
+	restore_config config.mk
+	epatch_user
+}
