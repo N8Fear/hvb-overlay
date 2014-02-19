@@ -17,9 +17,7 @@ RDEPEND="${DEPEND}"
 
 
 src_install() {
-	insinto /bin/
-	doins "${WORKDIR}/${P}/checksec.sh"
-	insinto /usr/share/doc/${P}/
-	doins "${WORKDIR}/${P}/changelog"
-	doins "${WORKDIR}/${P}/README.md"
+	dobin "${WORKDIR}/${P}/checksec.sh"
+	dodoc "${WORKDIR}/${P}/changelog"
+	dodoc "${WORKDIR}/${P}/README.md"
 }
