@@ -22,3 +22,11 @@ src_prepare() {
 	restore_config config.mk
 	epatch_user
 }
+
+
+src_install() {
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
+
+	save_config config.h
+	save_config config.mk
+}
