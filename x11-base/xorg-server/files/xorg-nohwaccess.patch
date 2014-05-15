@@ -1,28 +1,8 @@
---- hw/xfree86/os-support/linux/lnx_video.c
-+++ hw/xfree86/os-support/linux/lnx_video.c
-@@ -488,6 +488,8 @@
-     int fd;
-     unsigned int ioBase_phys;
- #endif
-+    if (xf86Info.noHwAccess)
-+        return TRUE;
- 
-     if (ExtendedEnabled)
-         return TRUE;
---- hw/xfree86/common/xf86Privstr.h
-+++ hw/xfree86/common/xf86Privstr.h
-@@ -112,6 +112,8 @@
-     MessageType dri2From;
- 
-     Bool autoAddGPU;
-+
-+    Bool noHwAccess;
- } xf86InfoRec, *xf86InfoPtr;
- 
- #ifdef DPMSExtension
---- hw/xfree86/common/xf86Globals.c
-+++ hw/xfree86/common/xf86Globals.c
-@@ -137,6 +137,7 @@
+diff --git a/hw/xfree86/common/xf86Globals.c b/hw/xfree86/common/xf86Globals.c
+index 984c39b..65bd3ac 100644
+--- a/hw/xfree86/common/xf86Globals.c
++++ b/hw/xfree86/common/xf86Globals.c
+@@ -137,6 +137,7 @@ xf86InfoRec xf86Info = {
  #else
      .autoAddGPU = FALSE,
  #endif
@@ -30,9 +10,11 @@
  };
  
  const char *xf86ConfigFile = NULL;
---- hw/xfree86/common/xf86Init.c
-+++ hw/xfree86/common/xf86Init.c
-@@ -1451,6 +1451,10 @@
+diff --git a/hw/xfree86/common/xf86Init.c b/hw/xfree86/common/xf86Init.c
+index 5a45004..95c4f0f 100644
+--- a/hw/xfree86/common/xf86Init.c
++++ b/hw/xfree86/common/xf86Init.c
+@@ -1479,6 +1479,10 @@ ddxProcessArgument(int argc, char **argv, int i)
          xf86Info.ShareVTs = TRUE;
          return 1;
      }
@@ -43,7 +25,7 @@
  
      /* OS-specific processing */
      return xf86ProcessArgument(argc, argv, i);
-@@ -1524,6 +1528,7 @@
+@@ -1552,6 +1556,7 @@ ddxUseMsg(void)
      ErrorF
          ("-novtswitch            don't automatically switch VT at reset & exit\n");
      ErrorF("-sharevts              share VTs with another X server\n");
@@ -51,3 +33,29 @@
      /* OS-specific usage */
      xf86UseMsg();
      ErrorF("\n");
+diff --git a/hw/xfree86/common/xf86Privstr.h b/hw/xfree86/common/xf86Privstr.h
+index 410ef17..68bf420 100644
+--- a/hw/xfree86/common/xf86Privstr.h
++++ b/hw/xfree86/common/xf86Privstr.h
+@@ -112,6 +112,8 @@ typedef struct {
+     MessageType dri2From;
+ 
+     Bool autoAddGPU;
++
++    Bool noHwAccess;
+ } xf86InfoRec, *xf86InfoPtr;
+ 
+ #ifdef DPMSExtension
+diff --git a/hw/xfree86/os-support/linux/lnx_video.c b/hw/xfree86/os-support/linux/lnx_video.c
+index 47f5abc..9e9e793 100644
+--- a/hw/xfree86/os-support/linux/lnx_video.c
++++ b/hw/xfree86/os-support/linux/lnx_video.c
+@@ -479,6 +479,8 @@ volatile unsigned char *ioBase = NULL;
+ #ifndef __NR_pciconfig_iobase
+ #define __NR_pciconfig_iobase	200
+ #endif
++    if (xf86Info.noHwAccess)
++        return TRUE;
+ 
+ static Bool
+ hwEnableIO(void)
