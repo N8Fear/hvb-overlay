@@ -6,7 +6,7 @@ EGIT_MASTER="mopidy"
 EGIT_BRANCH="mopidy"
 EGIT_HAS_SUBMODULES="of course!"
 
-inherit eutils flag-o-matic distutils git
+inherit eutils flag-o-matic distutils git-2
 
 DESCRIPTION="libspotify for Python"
 HOMEPAGE="http://www.mopidy.com/"
@@ -20,8 +20,8 @@ RDEPEND=">=media-libs/libspotify-0.0.7
 	 >=dev-python/gst-python-0.10"
 DEPEND="${RDEPEND}"
 
-src_unpack() {
-  git_src_unpack
-  mv "${S}"/pyspotify/* "${S}"
-  rm -f "${S}"/src/spotify/api.h
-}
+#src_unpack() {
+#  git_src_unpack
+#  mv "${S}"/pyspotify/* "${S}"
+#  rm -f "${S}"/src/spotify/api.h
+#}

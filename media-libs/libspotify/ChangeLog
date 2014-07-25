@@ -1,0 +1,13 @@
+2011-04-16  Valentin David  <valentin.david@gmail.com>
+
+	* libspotify-0.0.7.ebuild: New. Copy from 0.0.4.
+	Block libopenspotify.
+
+2010-10-09  Valentin David  <valentin.david@gmail.com>
+
+	* libspotify-0.0.4.ebuild (SRC_URI): Fix so that the manifest
+	gets all the files.
+
+2010-10-06  Valentin David  <valentin.david@gmail.com>
+
+	* libspotify-0.0.4.ebuild: New.
