@@ -1,0 +1,18 @@
+2011-04-16  Valentin David  <valentin.david@gmail.com>
+
+	* files/pyspotify-master-segfault_on_search.patch:
+	Remove.
+
+	* pyspotify-9999.ebuild: Fix EAPI. Fix libspotify dependency.
+	Fix git.
+
+2010-10-09  Valentin David  <valentin.david@gmail.com>
+
+	* files/pyspotify-master-segfault_on_search.patch:
+	New. Fix a segfault.
+
+	* pyspotify-9999.ebuild: Apply patch. Remove flag filters.
+
+2010-10-06  Valentin David  <valentin.david@gmail.com>
+
+	* pyspotify-9999.ebuild: New.
