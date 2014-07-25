@@ -8,9 +8,10 @@ MY_ARCH=${MY_ARCH/amd64/x86_64}
 ANAME="${P}-linux6-${MY_ARCH}"
 S="${WORKDIR}/${ANAME}"
 
-URI_BASE="http://developer.spotify.com/download/libspotify/${P}-linux6-"
-SRC_URI="x86? ( ${URI_BASE}i686.tar.gz )
-	 amd64? ( ${URI_BASE}x86_64.tar.gz )"
+URI_BASE="http://developer.spotify.com/download/libspotify/${P}-Linux-"
+SRC_URI="x86? ( ${URI_BASE}i686-release.tar.gz )
+	 amd64? ( ${URI_BASE}x86_64-release.tar.gz )"
+	 https://developer.spotify.com/download/libspotify/libspotify-12.1.51-Linux-x86_64-release.tar.gz
 
 LICENSE="Spotify"
 SLOT="0"
