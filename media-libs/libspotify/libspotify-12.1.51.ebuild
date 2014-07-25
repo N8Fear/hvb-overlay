@@ -1,41 +1,51 @@
-inherit eutils
+# Copyright 1999-2012 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
-DESCRIPTION="The libspotify C API package allows third party developers to write applications that utilize the Spotify music streaming service."
-HOMEPAGE="http://developer.spotify.com/en/libspotify/overview/"
+EAPI=3
 
-MY_ARCH=${ARCH/x86/i686}
-MY_ARCH=${MY_ARCH/amd64/x86_64}
-ANAME="${P}-linux6-${MY_ARCH}"
-S="${WORKDIR}/${ANAME}"
+DESCRIPTION="The libspotify C API package allows third-party developers to write applications that utilize the Spotify music streaming service."
+HOMEPAGE="https://developer.spotify.com/technologies/libspotify/"
+SRC_URI="
+	x86? (
+		https://developer.spotify.com/download/libspotify/${P}-Linux-i686-release.tar.gz
+	)
+	amd64? (
+		https://developer.spotify.com/download/libspotify/${P}-Linux-x86_64-release.tar.gz
+	)
+"
 
-URI_BASE="http://developer.spotify.com/download/libspotify/${P}-Linux-"
-SRC_URI="x86? ( ${URI_BASE}i686-release.tar.gz )
-	 amd64? ( ${URI_BASE}x86_64-release.tar.gz )"
-	 https://developer.spotify.com/download/libspotify/libspotify-12.1.51-Linux-x86_64-release.tar.gz
-
-LICENSE="Spotify"
+LICENSE="LibSpotify"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="doc"
+KEYWORDS="~amd64"
+IUSE=""
 
-#It could be installed in the same time, but libopenspotify installs
-#in the wrong directory.
-RDEPEND="!media-libs/libopenspotify"
-DEPEND="${RDEPEND}"
+DEPEND=""
+RDEPEND="${DEPEND}"
 
+S="${WORKDIR}"
 
 src_compile() {
-	      :
+	# nothing to compile
+	return
 }
 
 src_install() {
-	emake prefix="${D}/${DESTTREE}" install || die
-	dodoc README ChangeLog
-	if use doc; then
-	  mkdir -p "${D}/${DESTTREE}/share/man/" || die
-	  cp -r share/man3 "${D}/${DESTTREE}/share/man/" || die
-	  cd share/doc/libspotify || die
-	  mkdir -p "${D}/${DESTTREE}/share/doc/libspotify" || die
-	  cp -r html images examples "${D}/${DESTTREE}/share/doc/libspotify" || die
+	if use x86; then
+		cd "${P}-Linux-x86-release"
+	elif use amd64; then
+		cd "${P}-Linux-x86_64-release"
+	else
+		ewarn "Arch not supported, something went wrong"
+		die 1
 	fi
+
+	sed -i 's#PKG_PREFIX:$(prefix)#PKG_PREFIX:$(real_prefix)#;s/ldconfig.*//' Makefile
+	emake prefix="${D}/${DESTTREE}" real_prefix="${DESTTREE}" install
+
+	dodoc ChangeLog LICENSE licenses.xhtml README
+
+	# install man
+	doman share/man3/*
 }
+
