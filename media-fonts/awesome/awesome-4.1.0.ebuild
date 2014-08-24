@@ -21,4 +21,4 @@ RDEPEND=""
 
 S="${WORKDIR}"/${MY_PN}-${PV}
 FONT_SUFFIX="ttf otf"
-FONT_S="${S}"/font
+FONT_S="${S}"/fonts
