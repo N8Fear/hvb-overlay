@@ -1,0 +1,9 @@
+app-text/zathura-meta
+x11-apps/setxkbmap
+x11-apps/xrandr
+x11-base/xorg-server
+x11-misc/slock
+x11-misc/xautolock
+x11-plugins/dstatus
+x11-terms/st
+x11-wm/dwm

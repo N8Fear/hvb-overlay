@@ -1,0 +1,6 @@
+app-crypt/ccid
+app-emulation/vsmartcard
+dev-python/pycrypto
+dev-python/pycsc
+dev-python/pyscard
+sys-apps/pcsc-lite

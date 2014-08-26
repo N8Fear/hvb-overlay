@@ -1,0 +1,9 @@
+cross-avr/avr-libc
+cross-avr/binutils
+cross-avr/gcc
+cross-avr/gdb
+dev-embedded/avarice
+dev-embedded/avrdude
+dev-python/pyserial
+dev-util/ddd
+net-dialup/minicom
