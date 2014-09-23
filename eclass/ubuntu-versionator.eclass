@@ -19,8 +19,6 @@
 # If this occurs, the ebuild should be named package-3.6.0a_p0_p02
 
 
-EXPORT_FUNCTIONS pkg_setup pkg_postinst
-
 #---------------------------------------------------------------------------------------------------------------------------------#
 ### GLOBAL ECLASS INHERIT DEFAULTS ##
 
