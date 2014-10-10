@@ -130,6 +130,7 @@ PATCHES=(
 	"${UPSTREAMED_PATCHES[@]}"
 	"${FILESDIR}"/${PN}-1.12-ia64-fix_inx_outx.patch
 	"${FILESDIR}"/${PN}-1.12-unloadsubmodule.patch
+	"${FILESDIR}"/${PN}-1.14.3-musl.patch
 	"${FILESDIR}"/xorg-nohwaccess.patch
 )
 
