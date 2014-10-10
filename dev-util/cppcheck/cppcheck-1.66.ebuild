@@ -22,6 +22,10 @@ DEPEND="htmlreport? ( ${PYTHON_DEPS} )
 	qt4? ( dev-qt/qtgui:4 )"
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	epatch ${FILESDIR}/${P}-execinfo-musl.patch
+}
+
 src_configure() {
 	tc-export CXX
 	if use qt4 ; then
