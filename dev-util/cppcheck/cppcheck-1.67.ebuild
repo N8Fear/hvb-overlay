@@ -23,7 +23,7 @@ DEPEND="htmlreport? ( ${PYTHON_DEPS} )
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	epatch ${FILESDIR}/${PN}-1.67-execinfo-musl.patch
+	epatch ${FILESDIR}/${PN}-1.66-execinfo-musl.patch
 }
 
 src_configure() {
