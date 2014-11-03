@@ -50,9 +50,8 @@ src_install() {
 	newinitd "${FILESDIR}"/firehol.initrd.1 firehol
 
 	dodoc ChangeLog README NEWS
-	dohtml doc/*.html doc/*.css
 
-	doman doc/man/man1/*.1 doc/man/man5/*.5
+	doman doc/firehol/man/man1/*.1 doc/firefol/man/man5/*.5
 
 	# Install this RESERVED_IPS as discussed in bug #332135
 	insinto /etc/firehol
