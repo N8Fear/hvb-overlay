@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/net-irc/weechat/weechat-9999.ebuild,v 1.33 2014/08/10 20:54:10 slyfox Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
 
 EGIT_REPO_URI="https://github.com/weechat/weechat.git"
 [[ ${PV} == "9999" ]] && GIT_ECLASS="git-r3"
