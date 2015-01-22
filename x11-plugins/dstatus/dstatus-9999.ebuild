@@ -25,37 +25,38 @@ wifi? ( dev-libs/libnl )
 src_prepare() {
 	restore_config config.h
 	if use battery; then
-		${PLUGIN_LIST} += "WITH_BATTERY=1"
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_BATTERY=1"
 	fi
 	if use brightness; then
-		${PLUGIN_LIST} += "WITH_BRIGHTNESS=1"
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_BRIGHTNESS=1"
 	fi
 	if use cpu; then
-		${PLUGIN_LIST} += "WITH_CPU=1"
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_CPU=1"
 	fi
 	if use ip; then
-		${PLUGIN_LIST} += "WITH_IP=1"
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_IP=1"
 	fi
 	if use memory; then
-		${PLUGIN_LIST} += "WITH_MEMORY=1"
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_MEMORY=1"
 	fi
 	if use mpd; then
-		${PLUGIN_LIST} += "WITH_MPD=1"
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_MPD=1"
 	fi
 	if use selinux; then
-		${PLUGIN_LIST} += "WITH_SELINUX=1"
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_SELINUX=1"
 	fi
 	if use volume; then
-		${PLUGIN_LIST} += "WITH_VOLUME=1"
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_VOLUME=1"
 	fi
 	if use wifi; then
-		${PLUGIN_LIST} += "WITH_WIFI=1"
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_WIFI=1"
 	fi
 	epatch_user
 }
 
 src_compile() {
-	emake ${PLUGIN_LIST}
+	echo "Build: ${PLUGIN_LIST}"
+	make ${PLUGIN_LIST}
 }
 
 src_install() {
