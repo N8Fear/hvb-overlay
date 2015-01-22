@@ -56,10 +56,10 @@ src_prepare() {
 
 src_compile() {
 	echo "Build: ${PLUGIN_LIST}"
-	make ${PLUGIN_LIST}
+	emake ${PLUGIN_LIST}
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" ${PLUGIN_LIST} install
 	save_config config.h
 }
