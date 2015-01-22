@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>h.v.bruinehsen@fu-berlin.de</email>
+		<name>Hinnerk van Bruinehsen</name>
+	</maintainer>
+	<longdescription>
+		dstatus is a simple, build time configurable status bar for dwm.
+	</longdescription>
+	<use>
+		<flag name="cpu">Enable cpu monitor</flag>
+		<flag name="memory">Enable memory monitor</flag>
+		<flag name="battery">Enable battery monitor</flag>
+		<flag name="volume">Enable volume indicator</flag>
+		<flag name="selinux">Enable selinux status indicator</flag>
+		<flag name="wifi">Show name of WIFI network</flag>
+		<flag name="mpd">Show mpd status</flag>
+		<flag name="ip">Show ip adress</flag>
+		<flag name="brightness">Show brightness level</flag>
+	</use>
+</pkgmetadata>
