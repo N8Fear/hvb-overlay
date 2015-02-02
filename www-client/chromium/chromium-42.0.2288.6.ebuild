@@ -405,7 +405,7 @@ src_configure() {
 	myconf+=" -Dgoogle_api_key=AIzaSyDEAOvatFo0eTgsV_ZlEzx0ObmepsMzfAc
 		-Dgoogle_default_client_id=329227923882.apps.googleusercontent.com"
 
-	if !use libsecret; then
+	if use !libsecret; then
 		myconf+=" -Denable_credential_storage=0"
 	fi
 
