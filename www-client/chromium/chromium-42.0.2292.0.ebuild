@@ -19,7 +19,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="bindist cups gnome gnome-keyring hidpi kerberos libsecret neon pic pulseaudio selinux +tcmalloc"
+IUSE="bindist cups gnome gnome-keyring hidpi kerberos libsecret neon pic pulseaudio selinux +tcmalloc widevine"
 RESTRICT="!bindist? ( bindist )"
 
 # Native Client binaries are compiled with different set of flags, bug #452066.
@@ -95,7 +95,11 @@ DEPEND="${RDEPEND}
 	sys-apps/hwids[usb(+)]
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
-	virtual/pkgconfig"
+	virtual/pkgconfig
+	widevine? ( www-plugins/chrome-binary-plugins[widevine] )"
+	# We build-dep on having widevine, because the patch
+	# below must extract the current version.
+
 # For nvidia-drivers blocker, see bug #413637 .
 RDEPEND+="
 	!=www-client/chromium-9999
@@ -188,6 +192,19 @@ src_prepare() {
 	epatch "${FILESDIR}/${PN}-system-jinja-r7.patch"
 	if use libsecret; then
 		epatch "${FILESDIR}/${PN}-libsecret-r0.patch"
+	fi
+
+	if use widevine; then
+		local WIDEVINE_VERSION="$(< "${ROOT}/usr/$(get_libdir)/chromium-browser/widevine.version")"
+		[[ -z $WIDEVINE_VERSION ]] && die "Could not determine Widevine version."
+		sed -e "s/@WIDEVINE_VERSION@/${WIDEVINE_VERSION}/" "${FILESDIR}/${PN}-widevine.patch" > "${T}/${PN}-widevine-${WIDEVINE_VERSION}.patch"
+		epatch "${T}/${PN}-widevine-${WIDEVINE_VERSION}.patch"
+		local WIDEVINE_SUPPORTED_ARCHS="x64 ia32"
+		local arch
+		for arch in $WIDEVINE_SUPPORTED_ARCHS; do
+			mkdir -p third_party/widevine/cdm/linux/$arch
+			cp "${ROOT}/usr/$(get_libdir)/chromium-browser/libwidevinecdm.so" third_party/widevine/cdm/widevine_cdm_*.h third_party/widevine/cdm/linux/$arch/ || die "Could not copy headers for Widevine."
+		done
 	fi
 
 	epatch_user
@@ -403,10 +420,12 @@ src_configure() {
 	# please get your own set of keys. Feel free to contact chromium@gentoo.org
 	# for more info.
 	myconf+=" -Dgoogle_api_key=AIzaSyDEAOvatFo0eTgsV_ZlEzx0ObmepsMzfAc
-		-Dgoogle_default_client_id=329227923882.apps.googleusercontent.com"
+		-Dgoogle_default_client_id=329227923882.apps.googleusercontent.com
+		-Dgoogle_default_client_secret=vgKG0NNv7GoDpbtoFNLxCUXu"
 
 	if use !libsecret; then
 		myconf+=" -Denable_credential_storage=0"
+		myconf+=" -Ddisable_credential_storage=1"
 	fi
 
 	if use libsecret; then
@@ -586,6 +605,9 @@ src_install() {
 
 	doexe out/Release/libffmpegsumo.so || die
 	doexe out/Release/libpdf.so || die
+	if use widevine; then
+		doexe out/Release/libwidevinecdmadapter.so || die
+	fi
 
 	# Install icons and desktop entry.
 	local branding size
