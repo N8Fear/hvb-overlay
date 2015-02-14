@@ -8,7 +8,7 @@ inherit eutils autotools vcs-snapshot git-2
 
 DESCRIPTION="A fork of mutt, the small but very powerful text-based mail client"
 HOMEPAGE="https://github.com/karelzak/mutt-kz/wiki/"
-EGIT_REPO_URI="http://github.com/karelzak/${PN}"
+EGIT_REPO_URI="https://github.com/N8Fear/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
