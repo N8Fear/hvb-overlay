@@ -227,6 +227,7 @@ src_prepare() {
 		'net/third_party/mozilla_security_manager' \
 		'net/third_party/nss' \
 		'third_party/WebKit' \
+		'third_party/analytics' \
 		'third_party/angle' \
 		'third_party/angle/src/third_party/compiler' \
 		'third_party/brotli' \
@@ -269,12 +270,9 @@ src_prepare() {
 		'third_party/opus' \
 		'third_party/ots' \
 		'third_party/pdfium' \
+		'third_party/pdfium/third_party/base' \
 		'third_party/pdfium/third_party/bigint' \
 		'third_party/pdfium/third_party/freetype' \
-		'third_party/pdfium/third_party/logging.h' \
-		'third_party/pdfium/third_party/macros.h' \
-		'third_party/pdfium/third_party/numerics' \
-		'third_party/pdfium/third_party/template_util.h' \
 		'third_party/polymer' \
 		'third_party/protobuf' \
 		'third_party/qcms' \
@@ -604,7 +602,6 @@ src_install() {
 	newman out/Release/chrome.1 chromium-browser${CHROMIUM_SUFFIX}.1 || die
 
 	doexe out/Release/libffmpegsumo.so || die
-	doexe out/Release/libpdf.so || die
 	if use widevine; then
 		doexe out/Release/libwidevinecdmadapter.so || die
 	fi
