@@ -190,9 +190,7 @@ src_prepare() {
 	# fi
 
 	epatch "${FILESDIR}/${PN}-system-jinja-r7.patch"
-	if use libsecret; then
-		epatch "${FILESDIR}/${PN}-libsecret-r0.patch"
-	fi
+	epatch "${FILESDIR}/${PN}-libsecret-r1.patch"
 
 	if use widevine; then
 		local WIDEVINE_VERSION="$(< "${ROOT}/usr/$(get_libdir)/chromium-browser/widevine.version")"
@@ -421,13 +419,9 @@ src_configure() {
 		-Dgoogle_default_client_id=329227923882.apps.googleusercontent.com
 		-Dgoogle_default_client_secret=vgKG0NNv7GoDpbtoFNLxCUXu"
 
-	if use !libsecret; then
-		myconf+=" -Denable_credential_storage=0"
-		myconf+=" -Ddisable_credential_storage=1"
-	fi
-
 	if use libsecret; then
-		myconf+=" -Dgoogle_default_client_secret=vgKG0NNv7GoDpbtoFNLxCUXu"
+		myconf+="$(gyp_use libsecret)
+				-Dgoogle_default_client_secret=vgKG0NNv7GoDpbtoFNLxCUXu"
 	fi
 
 	local myarch="$(tc-arch)"
