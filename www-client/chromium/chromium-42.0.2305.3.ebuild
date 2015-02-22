@@ -190,7 +190,8 @@ src_prepare() {
 	# fi
 
 	epatch "${FILESDIR}/${PN}-system-jinja-r7.patch"
-	epatch "${FILESDIR}/${PN}-libsecret-r1.patch"
+	epatch "${FILESDIR}/${PN}-libsecret-r0.patch"
+	epatch "${FILESDIR}/${PN}-make-libsecret-optional.patch"
 
 	if use widevine; then
 		local WIDEVINE_VERSION="$(< "${ROOT}/usr/$(get_libdir)/chromium-browser/widevine.version")"
@@ -595,6 +596,7 @@ src_install() {
 	newman out/Release/chrome.1 chromium${CHROMIUM_SUFFIX}.1 || die
 	newman out/Release/chrome.1 chromium-browser${CHROMIUM_SUFFIX}.1 || die
 
+	doexe out/Release/libpdf.so || die
 	doexe out/Release/libffmpegsumo.so || die
 	if use widevine; then
 		doexe out/Release/libwidevinecdmadapter.so || die
