@@ -281,7 +281,6 @@ src_prepare() {
 		'third_party/smhasher' \
 		'third_party/sqlite' \
 		'third_party/tcmalloc' \
-		'third_party/tlslite' \
 		'third_party/trace-viewer' \
 		'third_party/trace-viewer/third_party/components/polymer' \
 		'third_party/trace-viewer/third_party/d3' \
@@ -291,6 +290,7 @@ src_prepare() {
 		'third_party/trace-viewer/third_party/tvcm/third_party/beautifulsoup/polymer_soup.py' \
 		'third_party/undoview' \
 		'third_party/usrsctp' \
+		'third_party/web-animations-js' \
 		'third_party/webdriver' \
 		'third_party/webrtc' \
 		'third_party/widevine' \
@@ -393,10 +393,16 @@ src_configure() {
 	myconf+="
 		-Dlogging_like_official_build=1"
 
+	if [[ $(tc-getCC) == *clang* ]]; then
+		myconf+=" -Dclang=1"
+	else
+		myconf+=" -Dclang=0"
+	fi
+
 	# Never use bundled gold binary. Disable gold linker flags for now.
 	# Do not use bundled clang.
 	myconf+="
-		-Dclang=0
+		-Dclang_use_chrome_plugins=0
 		-Dhost_clang=0
 		-Dlinux_use_bundled_binutils=0
 		-Dlinux_use_bundled_gold=0
