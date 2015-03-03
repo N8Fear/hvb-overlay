@@ -1,6 +1,6 @@
 EAPI="5"
 
-inherit git-2
+inherit git-2 eutils
 
 DESCRIPTION="Semi official mercurial bridge for git"
 HOMEPAGE="https://github.com/felipec/git-remote-hg.git"
@@ -14,4 +14,12 @@ BDEPEND="app-text/asciidoc"
 DEPEND="dev-lang/python"
 RDEPEND="${DEPEND}
 		dev-vcs/mercurial"
+
+
+src_install() {
+	into /usr/
+	dobin git-remote-hg
+	dodoc LICENSE
+	dodoc doc/git-remote-hg.1
+}
 
