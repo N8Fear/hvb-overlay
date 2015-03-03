@@ -17,7 +17,6 @@ RDEPEND="${DEPEND}
 
 
 src_install() {
-	into /usr/
 	dobin git-remote-hg
 	dodoc LICENSE
 	dodoc doc/git-remote-hg.1
