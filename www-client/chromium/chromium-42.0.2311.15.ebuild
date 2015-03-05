@@ -9,7 +9,7 @@ CHROMIUM_LANGS="am ar bg bn ca cs da de el en_GB es es_LA et fa fi fil fr gu he
 	hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt_BR pt_PT ro ru sk sl sr
 	sv sw ta te th tr uk vi zh_CN zh_TW"
 
-inherit chromium eutils flag-o-matic multilib multiprocessing pax-utils \
+inherit check-reqs chromium eutils flag-o-matic multilib multiprocessing pax-utils \
 	portability python-any-r1 readme.gentoo toolchain-funcs versionator virtualx
 
 DESCRIPTION="Open-source version of Google Chrome web browser"
@@ -158,6 +158,15 @@ pkg_pretend() {
 		[[ $(gcc-major-version)$(gcc-minor-version) -lt 48 ]]; then
 		die 'At least gcc 4.8 is required, see bugs: #535730, #525374, #518668.'
 	fi
+
+	# Check build requirements, bug #541816 .
+	CHECKREQS_DISK_BUILD="5G"
+	eshopts_push -s extglob
+	if is-flagq '-g?(gdb)?([1-9])'; then
+		CHECKREQS_DISK_BUILD="25G"
+	fi
+	eshopts_pop
+	check-reqs_pkg_pretend
 }
 
 pkg_setup() {
