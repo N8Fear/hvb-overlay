@@ -411,15 +411,6 @@ src_configure() {
 		-Dlinux_use_bundled_gold=0
 		-Dlinux_use_gold_flags=0"
 
-	# Always support proprietary codecs.
-	myconf+=" -Dproprietary_codecs=1"
-
-	ffmpeg_branding="Chromium"
-	if ! use bindist; then
-		# Enable H.264 support in bundled ffmpeg.
-		ffmpeg_branding="Chrome"
-	fi
-	myconf+=" -Dffmpeg_branding=${ffmpeg_branding}"
 	ffmpeg_branding="$(usex proprietary-codecs Chrome Chromium)"
 	myconf+=" -Dproprietary_codecs=1 -Dffmpeg_branding=${ffmpeg_branding}"
 
