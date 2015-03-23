@@ -19,8 +19,8 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="bindist cups gnome gnome-keyring hidpi kerberos libsecret neon pic pulseaudio selinux +tcmalloc widevine"
-RESTRICT="!bindist? ( bindist )"
+IUSE="cups gnome gnome-keyring hidpi kerberos libsecret neon pic proprietary-codecs pulseaudio selinux +tcmalloc widevine"
+RESTRICT="proprietary-codecs? ( bindist )"
 
 # Native Client binaries are compiled with different set of flags, bug #452066.
 QA_FLAGS_IGNORED=".*\.nexe"
@@ -181,12 +181,6 @@ pkg_setup() {
 	python-any-r1_pkg_setup
 
 	chromium_suid_sandbox_check_kernel_config
-
-	if use bindist; then
-		elog "bindist enabled: H.264 video support will be disabled."
-	else
-		elog "bindist disabled: Resulting binaries may not be legal to re-distribute."
-	fi
 }
 
 src_prepare() {
@@ -426,6 +420,8 @@ src_configure() {
 		ffmpeg_branding="Chrome"
 	fi
 	myconf+=" -Dffmpeg_branding=${ffmpeg_branding}"
+	ffmpeg_branding="$(usex proprietary-codecs Chrome Chromium)"
+	myconf+=" -Dproprietary_codecs=1 -Dffmpeg_branding=${ffmpeg_branding}"
 
 	# Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
 	# Note: these are for Gentoo use ONLY. For your own distribution,
