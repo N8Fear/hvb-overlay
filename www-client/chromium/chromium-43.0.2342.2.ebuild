@@ -238,7 +238,7 @@ src_prepare() {
 		'third_party/cros_system_api' \
 		'third_party/cython/python_flags.py' \
 		'third_party/dom_distiller_js' \
-		'third_party/dom_distiller_js/package/proto_gen/third_party/dom_distiller_js' \
+		'third_party/dom_distiller_js/dist/proto_gen/third_party/dom_distiller_js' \
 		'third_party/ffmpeg' \
 		'third_party/fips181' \
 		'third_party/flot' \
