@@ -1,13 +1,15 @@
 diff --git a/build/common.gypi b/build/common.gypi
-index 805ad8f..e8471bb 100644
+index 805ad8f..fe21ea5 100644
 --- a/build/common.gypi
 +++ b/build/common.gypi
-@@ -2035,7 +2035,7 @@
- 
-       # Options controlling the use of GConf (the classic GNOME configuration
-       # system) and GIO, which contains GSettings (the new GNOME config system).
--      ['chromeos==1 or embedded==1', {
-+      ['chromeos==1 or embedded==1 or chromeos==0', {
+@@ -2039,8 +2039,8 @@
          'use_gconf%': 0,
          'use_gio%': 0,
        }, {
+-        'use_gconf%': 1,
+-        'use_gio%': 1,
++        'use_gconf%': 0,
++        'use_gio%': 0,
+       }],
+ 
+       # Set up -D and -E flags passed into grit.

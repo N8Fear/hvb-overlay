@@ -195,7 +195,9 @@ src_prepare() {
 	epatch "${FILESDIR}/${PN}-system-jinja-r7.patch"
 	epatch "${FILESDIR}/${PN}-libsecret-r0.patch"
 	epatch "${FILESDIR}/${PN}-make-libsecret-optional.patch"
-	epatch "${FILESDIR}/${PN}-nogconf.patch"
+	if use !gnome; then
+		epatch "${FILESDIR}/${PN}-nogconf.patch"
+	fi
 
 	if use widevine; then
 		local WIDEVINE_VERSION="$(< "${ROOT}/usr/$(get_libdir)/chromium-browser/widevine.version")"
