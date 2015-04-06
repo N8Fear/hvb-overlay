@@ -195,6 +195,7 @@ src_prepare() {
 	epatch "${FILESDIR}/${PN}-system-jinja-r7.patch"
 	epatch "${FILESDIR}/${PN}-libsecret-r0.patch"
 	epatch "${FILESDIR}/${PN}-make-libsecret-optional.patch"
+	epatch "${FILESDIR}/${PN}-nogconf.patch"
 
 	if use widevine; then
 		local WIDEVINE_VERSION="$(< "${ROOT}/usr/$(get_libdir)/chromium-browser/widevine.version")"
@@ -425,6 +426,10 @@ src_configure() {
 	if use libsecret; then
 		myconf+="$(gyp_use libsecret)
 				-Dgoogle_default_client_secret=vgKG0NNv7GoDpbtoFNLxCUXu"
+	fi
+
+	if use !gnome; then
+		myconf+="$(gyp_use nogconf)"
 	fi
 
 	local myarch="$(tc-arch)"
