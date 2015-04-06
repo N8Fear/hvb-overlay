@@ -373,7 +373,6 @@ src_configure() {
 	# TODO: linux_link_kerberos, bug #381289.
 	myconf+="
 		$(gyp_use cups)
-		$(gyp_use gnome use_gconf)
 		$(gyp_use gnome-keyring use_gnome_keyring)
 		$(gyp_use gnome-keyring linux_link_gnome_keyring)
 		$(gyp_use hidpi enable_hidpi)
@@ -428,8 +427,8 @@ src_configure() {
 				-Dgoogle_default_client_secret=vgKG0NNv7GoDpbtoFNLxCUXu"
 	fi
 
-	if use !gnome; then
-		myconf+="$(gyp_use nogconf)"
+	if use gnome; then
+		$(gyp_use gnome use_gconf)
 	fi
 
 	local myarch="$(tc-arch)"
