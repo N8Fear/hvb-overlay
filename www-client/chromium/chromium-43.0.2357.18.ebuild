@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/www-client/chromium/chromium-42.0.2288.6.ebuild,v 1.1 2015/01/29 21:19:52 phajdan.jr Exp $
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 CHROMIUM_LANGS="am ar bg bn ca cs da de el en_GB es es_LA et fa fi fil fr gu he
 	hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt_BR pt_PT ro ru sk sl sr
