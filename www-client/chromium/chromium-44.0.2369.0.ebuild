@@ -294,6 +294,8 @@ src_prepare() {
 		'third_party/trace-viewer/third_party/jszip' \
 		'third_party/trace-viewer/third_party/tvcm' \
 		'third_party/trace-viewer/third_party/tvcm/third_party/beautifulsoup/polymer_soup.py' \
+		'third_party/trace-viewer/third_party/tvcm/third_party/rcssmin' \
+		'third_party/trace-viewer/third_party/tvcm/third_party/rjsmin' \
 		'third_party/undoview' \
 		'third_party/usrsctp' \
 		'third_party/web-animations-js' \
