@@ -160,7 +160,8 @@ pkg_pretend() {
 		die 'At least gcc 4.8 is required, see bugs: #535730, #525374, #518668.'
 	fi
 
-	# Check build requirements, bug #541816 .
+	# Check build requirements, bug #541816 and bug #471810 .
+	CHECKREQS_MEMORY="3G"
 	CHECKREQS_DISK_BUILD="5G"
 	eshopts_push -s extglob
 	if is-flagq '-g?(gdb)?([1-9])'; then
@@ -195,7 +196,6 @@ src_prepare() {
 
 	epatch "${FILESDIR}/${PN}-system-jinja-r7.patch"
 	epatch "${FILESDIR}/${PN}-libsecret-r0.patch"
-	epatch "${FILESDIR}/${PN}-system-libvpx-r0.patch"
 	epatch "${FILESDIR}/${PN}-make-libsecret-optional.patch"
 	if ! use gnome; then
 		epatch "${FILESDIR}/${PN}-nogconf.patch"
