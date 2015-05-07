@@ -19,7 +19,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/${P}
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="cups gnome gnome-keyring hidpi kerberos libsecret neon pic proprietary-codecs pulseaudio selinux +tcmalloc widevine"
+IUSE="cups gnome gnome-keyring hidpi kerberos libsecret neon pic proprietary-codecs pulseaudio selinux +tcmalloc"
 RESTRICT="proprietary-codecs? ( bindist )"
 
 # Native Client binaries are compiled with different set of flags, bug #452066.
@@ -40,7 +40,6 @@ RDEPEND=">=app-accessibility/speech-dispatcher-0.8:=
 	>=dev-libs/elfutils-0.149
 	dev-libs/expat:=
 	dev-libs/glib:=
-	dev-libs/icu:=
 	>=dev-libs/jsoncpp-0.5.0-r1:=
 	>=dev-libs/libevent-1.4.13:=
 	dev-libs/libxml2:=[icu]
@@ -96,10 +95,7 @@ DEPEND="${RDEPEND}
 	sys-apps/hwids[usb(+)]
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
-	virtual/pkgconfig
-	widevine? ( www-plugins/chrome-binary-plugins[widevine] )"
-	# We build-dep on having widevine, because the patch
-	# below must extract the current version.
+	virtual/pkgconfig"
 
 # For nvidia-drivers blocker, see bug #413637 .
 RDEPEND+="
@@ -201,19 +197,6 @@ src_prepare() {
 		epatch "${FILESDIR}/${PN}-nogconf.patch"
 	fi
 
-	if use widevine; then
-		local WIDEVINE_VERSION="$(< "${ROOT}/usr/$(get_libdir)/chromium-browser/widevine.version")"
-		[[ -z $WIDEVINE_VERSION ]] && die "Could not determine Widevine version."
-		sed -e "s/@WIDEVINE_VERSION@/${WIDEVINE_VERSION}/" "${FILESDIR}/${PN}-widevine.patch" > "${T}/${PN}-widevine-${WIDEVINE_VERSION}.patch"
-		epatch "${T}/${PN}-widevine-${WIDEVINE_VERSION}.patch"
-		local WIDEVINE_SUPPORTED_ARCHS="x64 ia32"
-		local arch
-		for arch in $WIDEVINE_SUPPORTED_ARCHS; do
-			mkdir -p third_party/widevine/cdm/linux/$arch
-			cp "${ROOT}/usr/$(get_libdir)/chromium-browser/libwidevinecdm.so" third_party/widevine/cdm/widevine_cdm_*.h third_party/widevine/cdm/linux/$arch/ || die "Could not copy headers for Widevine."
-		done
-	fi
-
 	epatch_user
 
 	# Remove most bundled libraries. Some are still needed.
@@ -252,6 +235,7 @@ src_prepare() {
 		'third_party/google_input_tools/third_party/closure_library/third_party/closure' \
 		'third_party/hunspell' \
 		'third_party/iccjpeg' \
+		'third_party/icu' \
 		'third_party/jstemplate' \
 		'third_party/khronos' \
 		'third_party/leveldatabase' \
@@ -337,6 +321,7 @@ src_configure() {
 
 	# Use system-provided libraries.
 	# TODO: use_system_hunspell (upstream changes needed).
+	# TODO: use_system_icu (needs http://bugs.icu-project.org/trac/ticket/11358)
 	# TODO: use_system_libsrtp (bug #459932).
 	# TODO: use_system_libusb (http://crbug.com/266149).
 	# TODO: use_system_opus (https://code.google.com/p/webrtc/issues/detail?id=3077).
@@ -347,7 +332,6 @@ src_configure() {
 		-Duse_system_bzip2=1
 		-Duse_system_flac=1
 		-Duse_system_harfbuzz=1
-		-Duse_system_icu=1
 		-Duse_system_jsoncpp=1
 		-Duse_system_libevent=1
 		-Duse_system_libjpeg=1
@@ -612,9 +596,6 @@ src_install() {
 	newman out/Release/chrome.1 chromium-browser${CHROMIUM_SUFFIX}.1 || die
 
 	doexe out/Release/libffmpegsumo.so || die
-	if use widevine; then
-		doexe out/Release/libwidevinecdmadapter.so || die
-	fi
 
 	# Install icons and desktop entry.
 	local branding size
