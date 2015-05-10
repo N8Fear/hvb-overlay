@@ -18,8 +18,8 @@ KEYWORDS=""
 IUSE="debug dbus test"
 
 RDEPEND="dev-libs/libgcrypt:=
-	dev-qt/qtcore:4[qt3support]
-	dev-qt/qtgui:4[qt3support]
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}
