@@ -5,7 +5,7 @@
 EAPI=5
 
 XORG_DRI=dri
-inherit linux-info xorg-2
+inherit eutils linux-info xorg-2
 
 DESCRIPTION="X.Org driver for Intel cards"
 
@@ -37,7 +37,9 @@ DEPEND="${RDEPEND}
 	x11-proto/dri3proto
 	x11-proto/presentproto
 	x11-proto/resourceproto"
-
+src_prepare() {
+	epatch ${FILESDIR}/xf86-video-intel-build-with-gcc5.patch
+}
 src_configure() {
 	XORG_CONFIGURE_OPTIONS=(
 		$(use_enable debug)
