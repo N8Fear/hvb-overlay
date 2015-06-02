@@ -15,24 +15,23 @@ EGIT_REPO_URI=(
 LICENSE="LGPL-2.1 GPL-2 GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug dbus test"
+IUSE="debug test"
 
 RDEPEND="dev-libs/libgcrypt:=
-	dev-qt/qtcore:4
-	dev-qt/qtgui:4
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}
-	test? ( dev-qt/qttest:4 )
+	test? ( dev-qt/qttest:5 )
 "
 
 src_configure() {
 	local mycmakeargs=(
+		-DWITH_QT5=ON
 		$(cmake-utils_use_with test TESTS)
 		-DWITH_GUI_TESTS=OFF
+
 	)
-	if ! use dbus; then
-		mycmakeargs="${mycmakeargs} -DDISABLE_DBUS"
-	fi
 	cmake-utils_src_configure
 }
