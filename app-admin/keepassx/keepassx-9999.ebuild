@@ -15,17 +15,27 @@ EGIT_REPO_URI=(
 LICENSE="LGPL-2.1 GPL-2 GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug"
+IUSE="debug test qt5"
 
 RDEPEND="dev-libs/libgcrypt:=
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
+	qt5? ( dev-qt/qtcore:5 )
+	qt5? ( dev-qt/qtgui:5 )
+	!qt5? ( dev-qt/qtcore:4 )
+	!qt5? ( dev-qt/qtgui:4 )
 	sys-libs/zlib
+"
+DEPEND="${RDEPEND}
+	test? ( qt5? ( dev-qt/qttest:5 )
+			!qt5? ( dev-qt/qttest:4 )
+	)
+
 "
 
 src_configure() {
 	local mycmakeargs=(
+		$(cmake-utils_use_with qt5 QT5)
 		-DWITH_QT5=ON
+		$(cmake-utils_use_with test TESTS)
 		-DWITH_GUI_TESTS=OFF
 	)
 	cmake-utils_src_configure
