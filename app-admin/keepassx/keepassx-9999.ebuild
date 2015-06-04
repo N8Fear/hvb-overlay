@@ -33,10 +33,11 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_with qt5 QT5)
-		-DWITH_QT5=ON
 		$(cmake-utils_use_with test TESTS)
 		-DWITH_GUI_TESTS=OFF
 	)
+	if use qt5; then
+		mycmakeargs=" ${mycmakeargs} -DWITH_QT5=ON"
+	fi
 	cmake-utils_src_configure
 }
