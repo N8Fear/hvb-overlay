@@ -8,7 +8,7 @@ inherit git-2
 
 DESCRIPTION="A standalone implementation of fortify source."
 HOMEPAGE="http://git.2f30.org/fortify-headers/"
-EGIT_SRC_URI="http://git.2f30.org/fortify-headers"
+EGIT_REPO_URI="http://git.2f30.org/fortify-headers"
 
 LICENSE="ISC"
 SLOT="0"
