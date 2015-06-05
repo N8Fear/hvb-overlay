@@ -36,8 +36,6 @@ src_configure() {
 		$(cmake-utils_use_with test TESTS)
 		-DWITH_GUI_TESTS=OFF
 	)
-	if use qt5; then
-		mycmakeargs=" ${mycmakeargs} -DWITH_QT5=ON"
-	fi
+	mycmakeargs=" ${mycmakeargs} -DWITH_QT5=ON"
 	cmake-utils_src_configure
 }
