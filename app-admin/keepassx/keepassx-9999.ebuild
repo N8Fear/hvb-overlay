@@ -24,6 +24,9 @@ RDEPEND="dev-libs/libgcrypt:=
 "
 
 src_configure() {
-	local mycmakeargs="-DWITH_QT5=ON"
+	local mycmakeargs=(
+		-DWITH_QT5=ON
+		-DWITH_GUI_TESTS=OFF
+	)
 	cmake-utils_src_configure
 }
