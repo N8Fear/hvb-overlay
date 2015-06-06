@@ -10,7 +10,7 @@ DESCRIPTION="a statusbar for dwm"
 HOMEPAGE="https://bitbucket.org/N8Fear/dstatus"
 EGIT_REPO_URI="https://bitbucket.org/N8Fear/dstatus.git"
 
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
 IUSE="battery brightness cpu ip memory mpd selinux volume wifi"
