@@ -5,7 +5,7 @@
 EAPI=5
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 
-inherit git-2 distutils-r1
+inherit git-2 distutils-r1 python-r1
 
 DESCRIPTION="A tool for identifying files embedded inside firmware images"
 HOMEPAGE="https://github.com/devttys0/binwalk"
@@ -22,22 +22,14 @@ RDEPEND="
 	graph? ( dev-python/pyqtgraph[opengl,${PYTHON_USEDEP}] )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.0.1-makefile.patch
-	"${FILESDIR}"/${PN}-2.0.1-libs.patch
-)
 
-python_configure_all() {
-	econf --disable-bundles
-}
 
 python_compile_all() {
-	emake
+	distutils-r1_python_compile_all
 }
 
 python_install_all() {
 	local DOCS=( API.md INSTALL.md )
 	distutils-r1_python_install_all
 
-	dolib.so src/C/*/*.so
 }
