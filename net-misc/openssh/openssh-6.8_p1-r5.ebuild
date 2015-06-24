@@ -141,7 +141,7 @@ src_prepare() {
 	# The X509 patchset fixes this independently.
 	use X509 || epatch "${FILESDIR}"/${PN}-6.8_p1-ssl-engine-configure.patch
 	epatch "${WORKDIR}"/${P}-sctp.patch
-	epatch "${WORKDIR}"/${P}-tcp-stealth-knock.patch
+	epatch "${FILESDIR}"/${P}-tcp-stealth-knock.patch
 	if use hpn ; then
 		# The teraterm patch pulled in an upstream update.
 		pushd "${WORKDIR}"/${HPN_PATCH%.*.*} >/dev/null
