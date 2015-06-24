@@ -222,6 +222,9 @@ src_configure() {
 		append-ldflags -lutil
 	fi
 
+	# Since there is no libc support for STEALH_TCP define it ourselves
+	append-cflags -DTCP_STEALTH=26 -DTCP_STEALTH_INTEGRITY=27 -DTCP_STEALTH_INTEGRITY_LEN=28 -DTCP_STEALTH_SECRET_SIZE=64
+
 	econf "${myconf[@]}"
 }
 
