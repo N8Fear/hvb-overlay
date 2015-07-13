@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit cmake-utils distutils fdo-mime
+inherit cmake-utils eutils fdo-mime
 
 DESCRIPTION="Qt4-based image viewer"
 HOMEPAGE="http://www.nomacs.org/"
