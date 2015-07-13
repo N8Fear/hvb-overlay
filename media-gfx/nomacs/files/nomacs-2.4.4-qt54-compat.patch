@@ -1,0 +1,15 @@
+diff --git a/src/.DkThumbsWidgets.cpp.un~ b/src/.DkThumbsWidgets.cpp.un~
+index 2b2fbd4..1218f31 100644
+Binary files a/src/.DkThumbsWidgets.cpp.un~ and b/src/.DkThumbsWidgets.cpp.un~ differ
+diff --git a/src/DkThumbsWidgets.cpp b/src/DkThumbsWidgets.cpp
+index 29bc284..9545461 100644
+--- a/src/DkThumbsWidgets.cpp
++++ b/src/DkThumbsWidgets.cpp
+@@ -1842,7 +1842,6 @@ void DkThumbScrollWidget::addContextMenuActions(const QVector<QAction*>& actions
+ 		QToolButton* toolButton = new QToolButton(this);
+ 		toolButton->setObjectName("DkThumbToolButton");
+ 		toolButton->setMenu(m);
+-		toolButton->setAccessibleName(menuTitle);
+ 		toolButton->setText(menuTitle);
+ 
+ 		if (menuTitle == tr("&Sort")) {	// that's an awful hack
