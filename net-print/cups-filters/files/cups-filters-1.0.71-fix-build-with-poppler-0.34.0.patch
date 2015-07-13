@@ -1,0 +1,26 @@
+diff --git a/filter/pdftoopvp/OPVPOutputDev.cxx b/filter/pdftoopvp/OPVPOutputDev.cxx
+index 8a20584..c2ef675 100644
+--- a/filter/pdftoopvp/OPVPOutputDev.cxx
++++ b/filter/pdftoopvp/OPVPOutputDev.cxx
+@@ -1812,7 +1812,7 @@ void OPVPOutputDev::drawSoftMaskedImage(GfxState *state, Object *ref,
+   maskSplash->drawImage(&imageSrc, &imgMaskData,
+ 			splashModeMono8, gFalse, maskWidth, maskHeight, mat);
+ #else
+-  maskSplash->drawImage(&imageSrc, &imgMaskData,
++  maskSplash->drawImage(&imageSrc, NULL, &imgMaskData,
+ 			splashModeMono8, gFalse, maskWidth, maskHeight,
+                         mat,gFalse);
+ #endif
+diff --git a/filter/pdftoopvp/oprs/OPRS.cxx b/filter/pdftoopvp/oprs/OPRS.cxx
+index 15710c1..c54ac3f 100644
+--- a/filter/pdftoopvp/oprs/OPRS.cxx
++++ b/filter/pdftoopvp/oprs/OPRS.cxx
+@@ -241,7 +241,7 @@ SplashError OPRS::drawImage(SplashImageSource src, void *srcData,
+ #if POPPLER_VERSION_MAJOR <= 0 && (POPPLER_VERSION_MINOR <= 20 || (POPPLER_VERSION_MINOR == 21 && POPPLER_VERSION_MICRO <= 2))
+ 	return splash->drawImage(src,srcData,srcMode,srcAlpha,w,h,mat);
+ #else
+-	return splash->drawImage(src,srcData,srcMode,srcAlpha,w,h,mat,gFalse);
++	return splash->drawImage(src, NULL, srcData,srcMode,srcAlpha,w,h,mat,gFalse);
+ #endif
+     } else {
+ 	return opvpSplash->drawImage(src,srcData,srcMode,srcAlpha,w,h,mat);
