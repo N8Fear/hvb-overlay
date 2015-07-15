@@ -5,7 +5,7 @@
 
 EAPI=5
 
-inherit git-2
+inherit autotools eutils git-2
 
 DESCRIPTION="Facebook protocol plugin for libpurple"
 HOMEPAGE="https://github.com/jgeboski/purple-facebook"
@@ -18,3 +18,7 @@ IUSE=""
 
 DEPEND="dev-libs/json-glib"
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	eautoreconf
+}
