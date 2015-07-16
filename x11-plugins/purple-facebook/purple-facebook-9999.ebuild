@@ -11,13 +11,15 @@ DESCRIPTION="Facebook protocol plugin for libpurple"
 HOMEPAGE="https://github.com/jgeboski/purple-facebook"
 EGIT_REPO_URI="https://github.com/jgeboski/purple-facebook.git"
 
-LICENSE="GPL2"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="dev-libs/json-glib"
-RDEPEND="${DEPEND}"
+RDEPEND="dev-libs/json-glib
+		net-im/pidgin"
+DEPEND="${RDEPEND}"
+DOCS=( AUTHORS ChangeLog NEWS README VERSION )
 
 src_prepare() {
 	eautoreconf
