@@ -49,7 +49,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-gentoo.patch
 	epatch_user
 	restore_config config.h
 	tc-export CC PKG_CONFIG
