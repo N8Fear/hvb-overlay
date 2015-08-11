@@ -23,6 +23,7 @@ RDEPEND="dev-libs/libgcrypt:=
 	dev-qt/qttest:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtwidgets:5
+	dev-qt/qtx11extras:5
 	sys-libs/zlib
 "
 
