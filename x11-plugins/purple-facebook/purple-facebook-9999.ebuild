@@ -21,6 +21,8 @@ RDEPEND="dev-libs/json-glib
 DEPEND="${RDEPEND}"
 DOCS=( AUTHORS ChangeLog NEWS README VERSION )
 
-src_prepare() {
+src_configure() {
+	./autogen.sh
 	eautoreconf
+	./configure
 }
