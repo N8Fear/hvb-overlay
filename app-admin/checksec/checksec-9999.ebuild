@@ -18,6 +18,7 @@ RDEPEND="${DEPEND}"
 
 src_install() {
 	dobin "${WORKDIR}/${P}/checksec"
-	dodoc "${WORKDIR}/${P}/changelog"
+	dodoc "${WORKDIR}/${P}/ChangeLog"
 	dodoc "${WORKDIR}/${P}/README.md"
+	dodoc "${WORKDIR}/${P}/LICENSE.txt"
 }
