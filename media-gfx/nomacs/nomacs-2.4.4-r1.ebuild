@@ -23,7 +23,7 @@ REQUIRED_USE="
 RDEPEND="
 	dev-qt/qtcore:4
 	dev-qt/qtgui:4
-	>=media-gfx/exiv2-0.20:=[zlib]
+	>=media-gfx/exiv2-0.25:=[png]
 	opencv? ( >=media-libs/opencv-2.4:=[qt4] )
 	raw? ( >=media-libs/libraw-0.14:= )
 	tiff? ( media-libs/tiff:0 )
