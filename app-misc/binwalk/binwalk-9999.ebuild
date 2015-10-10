@@ -3,7 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/app-misc/binwalk/binwalk-2.0.1.ebuild,v 1.3 2014/11/21 07:40:11 radhermit Exp $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python{2_7,3_3,3_4,3_5} )
 
 inherit git-2 distutils-r1 python-r1
 
