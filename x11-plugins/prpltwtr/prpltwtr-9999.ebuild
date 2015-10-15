@@ -9,6 +9,7 @@ inherit git-2
 DESCRIPTION="libpurple twitter protocol"
 HOMEPAGE="https://github.com/mikeage/prpltwtr"
 EGIT_REPO_URI="https://github.com/mikeage/prpltwtr.git"
+EGIT_BRANCH="twitter-json"
 
 LICENSE="GPL-2"
 SLOT="0"
