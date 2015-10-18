@@ -8,7 +8,7 @@ inherit eutils git-2 qmake-utils
 
 DESCRIPTION="Powerful and easy-to-use multimedia player"
 HOMEPAGE="http://bomi.github.io/"
-EGIT_SRC_REPO="https://github.com/xylosper/bomi.git"
+EGIT_REPO_URI="https://github.com/xylosper/bomi.git"
 
 LICENSE="GPL-2"
 SLOT="0"
