@@ -18,6 +18,6 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~spar
 DEPEND=">=dev-lang/python-2.7"
 
 python_install_all() {
-	local DOCS=( README.rst AUTHORS LICENSE )
+	local DOCS=( README.rst LICENSE CONTRIBUTORS )
 	distutils-r1_python_install_all
 }
