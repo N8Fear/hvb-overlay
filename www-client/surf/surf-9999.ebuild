@@ -16,8 +16,8 @@ KEYWORDS=""
 COMMON_DEPEND="
 	dev-libs/glib
 	net-libs/libsoup
-	net-libs/webkit-gtk:2
-	x11-libs/gtk+:2
+	net-libs/webkit-gtk:4
+	x11-libs/gtk+:3
 	x11-libs/libX11
 "
 DEPEND="
