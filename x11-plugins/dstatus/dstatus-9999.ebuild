@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://bitbucket.org/N8Fear/dstatus.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
-IUSE="battery brightness cpu ip memory mpd selinux volume wifi"
+IUSE="battery brightness cpu ip load memory mpd net selinux volume wifi"
 
 PLUGIN_LIST=""
 
@@ -36,11 +36,17 @@ src_prepare() {
 	if use ip; then
 		PLUGIN_LIST="${PLUGIN_LIST} WITH_IP=1"
 	fi
+	if use load; then
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_LOADAVG=1"
+	fi
 	if use memory; then
 		PLUGIN_LIST="${PLUGIN_LIST} WITH_MEMORY=1"
 	fi
 	if use mpd; then
 		PLUGIN_LIST="${PLUGIN_LIST} WITH_MPD=1"
+	fi
+	if use net; then
+		PLUGIN_LIST="${PLUGIN_LIST} WITH_NETSTAT=1"
 	fi
 	if use selinux; then
 		PLUGIN_LIST="${PLUGIN_LIST} WITH_SELINUX=1"
