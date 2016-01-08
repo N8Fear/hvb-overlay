@@ -23,8 +23,7 @@ KEYWORDS=""
 fi
 IUSE=""
 
-RDEPEND="!app-text/zathura-pdf-poppler
-	>=app-text/mupdf-1.3:=
+RDEPEND=">=app-text/mupdf-1.3:=
 	>=app-text/zathura-0.3.1
 	media-libs/jbig2dec:=
 	media-libs/openjpeg:2=
