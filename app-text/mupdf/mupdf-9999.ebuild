@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/mupdf/mupdf-9999.ebuild,v 1.49 2014/10/10 13:50:49 xmw Exp $
+# $Id$
 
 EAPI=5
 
@@ -12,11 +12,14 @@ EGIT_REPO_URI="https://N8Fear@bitbucket.org/N8Fear/mupdf.git"
 #EGIT_HAS_SUBMODULES=1
 
 LICENSE="AGPL-3"
-SLOT="0/1.5"
+MY_SOVER=1.8
+SLOT="0/${MY_SOVER}"
 KEYWORDS=""
-IUSE="X vanilla curl openssl static static-libs"
+IUSE="X vanilla curl libressl openssl static static-libs"
 
-LIB_DEPEND="dev-libs/openssl[static-libs?]
+LIB_DEPEND="
+	!libressl? ( dev-libs/openssl:0[static-libs?] )
+	libressl? ( dev-libs/libressl[static-libs?] )
 	media-libs/freetype:2[static-libs?]
 	media-libs/jbig2dec[static-libs?]
 	media-libs/openjpeg:2[static-libs?]
@@ -67,6 +70,7 @@ src_prepare() {
 		-e "1ibuild = debug" \
 		-e "1iprefix = ${ED}usr" \
 		-e "1ilibdir = ${ED}usr/$(get_libdir)" \
+		-e "1idocdir = ${ED}usr/share/doc/${PF}" \
 	    -e "1iHAVE_X11 = $(usex X)" \
 		-e "1iWANT_OPENSSL = $(usex openssl)" \
 		-e "1iWANT_CURL = $(usex curl)" \
@@ -81,14 +85,14 @@ src_prepare() {
 			-i "${S}"-static/Makerules || die
 	fi
 
-	my_soname=libmupdf.so.1.5
-	my_soname_js_none=libmupdf-js-none.so.1.5
+	my_soname=libmupdf.so.${MY_SOVER}
+	my_soname_js_none=libmupdf-js-none.so.${MY_SOVER}
 	sed -e "\$a\$(MUPDF_LIB): \$(MUPDF_JS_NONE_LIB)" \
 		-e "\$a\\\t\$(QUIET_LINK) \$(CC) \$(LDFLAGS) --shared -Wl,-soname -Wl,${my_soname} -Wl,--no-undefined -o \$@ \$^ \$(MUPDF_JS_NONE_LIB) \$(LIBS)" \
 		-e "/^MUPDF_LIB :=/s:=.*:= \$(OUT)/${my_soname}:" \
 		-e "\$a\$(MUPDF_JS_NONE_LIB):" \
 		-e "\$a\\\t\$(QUIET_LINK) \$(CC) \$(LDFLAGS) --shared -Wl,-soname -Wl,${my_soname_js_none} -Wl,--no-undefined -o \$@ \$^ \$(LIBS)" \
-		-e "/^MUPDF_JS_NONE_LIB :=/s:=.*:= \$(OUT)/${my_soname_js_none}:" \
+		-e "/install/s: COPYING : :" \
 		-i Makefile || die
 }
 
@@ -109,7 +113,7 @@ src_install() {
 	fi
 
 	emake install
-	dosym ${my_soname} /usr/$(get_libdir)/lib${PN}.so
+	dosym ${my_soname} /usr/$(get_libdir)/lib${PN}.a
 
 	use static-libs && \
 		dolib.a "${S}"-static/build/debug/lib${PN}{,-js-none}.a
