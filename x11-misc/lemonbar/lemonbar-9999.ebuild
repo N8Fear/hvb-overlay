@@ -6,10 +6,10 @@ EAPI=5
 
 inherit git-r3
 
-DESCRIPTION="A featherweight, lemon-scented, bar based on xcb"
+DESCRIPTION="A featherweight, lemon-scented, bar based on xcb - with xft support"
 HOMEPAGE="https://github.com/LemonBoy/bar"
 SRC_URI=""
-EGIT_REPO_URI="https://github.com/LemonBoy/bar.git"
+EGIT_REPO_URI="https://github.com/krypt-n/bar.git"
 
 LICENSE="MIT"
 SLOT="0"
