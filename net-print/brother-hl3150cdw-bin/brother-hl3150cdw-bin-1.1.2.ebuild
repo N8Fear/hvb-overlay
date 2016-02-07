@@ -43,5 +43,5 @@ src_install() {
     ( cd ${D}/usr/libexec/cups/filter/ && ln -s ../../../../opt/brother/Printers/hl3150cdw/lpd/filterhl3150cdw brlpdwrapperhl3150cdw ) || die
 
     mkdir -p ${D}/usr/share/cups/model || die
-    ( cd ${D}/usr/share/cups/model && ln -s ../../../../opt/brother/Printers/hl3150cdw/cupswrapper/hl3150cdw.ppd ) || die
+    ( cd ${D}/usr/share/cups/model && ln -s ../../../../opt/brother/Printers/hl3150cdw/cupswrapper/brother_hl3150cdw_printer_en.ppd hl3150cdw.ppd ) || die
 }
