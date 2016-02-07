@@ -37,11 +37,11 @@ src_install() {
 
     dosbin "${WORKDIR}/usr/bin/brprintconf_hl3150cdw"
 
-    cp -r usr "${D}" || die
+    cp -r usr opt "${D}" || die
 
     mkdir -p ${D}/usr/libexec/cups/filter || die
-    ( cd ${D}/usr/libexec/cups/filter/ && ln -s ../../../../usr/local/Brother/Printer/hl3150cdw/lpd/filterhl3150cdw brlpdwrapperhl3150cdw ) || die
+    ( cd ${D}/usr/libexec/cups/filter/ && ln -s ../../../../opt/brother/Printers/hl3150cdw/lpd/filterhl3150cdw brlpdwrapperhl3150cdw ) || die
 
     mkdir -p ${D}/usr/share/cups/model || die
-    ( cd ${D}/usr/share/cups/model && ln -s ../../../../usr/local/Brother/Printer/hl3150cdw/cupswrapper/hl3150cdw.ppd ) || die
+    ( cd ${D}/usr/share/cups/model && ln -s ../../../../opt/brother/Printers/hl3150cdw/cupswrapper/hl3150cdw.ppd ) || die
 }
