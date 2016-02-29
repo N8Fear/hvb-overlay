@@ -38,13 +38,15 @@ DEPEND="${RDEPEND}
 		x11-libs/libxcb[static-libs] )"
 
 src_prepare() {
+	use hppa && append-cflags -ffunction-sections
+
 	rm -rf thirdparty || die
 
 	epatch \
-		"${FILESDIR}"/${PN}-1.3-CFLAGS.patch \
 		"${FILESDIR}"/${PN}-1.5-old-debian-files.patch \
 		"${FILESDIR}"/${PN}-1.3-pkg-config.patch \
 		"${FILESDIR}"/${PN}-1.5-Makerules-openssl-curl.patch
+#		"${FILESDIR}"/${PN}-1.3-CFLAGS.patch \
 
 	if has_version ">=media-libs/openjpeg-2.1:2" ; then
 		epatch \
@@ -113,6 +115,7 @@ src_install() {
 	fi
 
 	emake install
+	dosym ${my_soname} /usr/$(get_libdir)/lib${PN}.so
 	dosym ${my_soname} /usr/$(get_libdir)/lib${PN}.a
 
 	use static-libs && \
