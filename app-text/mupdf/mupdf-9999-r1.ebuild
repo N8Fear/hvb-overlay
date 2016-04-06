@@ -4,11 +4,11 @@
 
 EAPI=5
 
-inherit eutils flag-o-matic git-2 multilib toolchain-funcs
+inherit eutils git-2 multilib toolchain-funcs
 
 DESCRIPTION="a lightweight PDF viewer and toolkit written in portable C"
 HOMEPAGE="http://mupdf.com/"
-EGIT_REPO_URI="git://git.ghostscript.com/mupdf.git"
+EGIT_REPO_URI="https://N8Fear@bitbucket.org/N8Fear/mupdf.git"
 #EGIT_HAS_SUBMODULES=1
 
 LICENSE="AGPL-3"
@@ -46,6 +46,7 @@ src_prepare() {
 		"${FILESDIR}"/${PN}-1.5-old-debian-files.patch \
 		"${FILESDIR}"/${PN}-1.3-pkg-config.patch \
 		"${FILESDIR}"/${PN}-1.5-Makerules-openssl-curl.patch
+#		"${FILESDIR}"/${PN}-1.3-CFLAGS.patch \
 
 	if has_version ">=media-libs/openjpeg-2.1:2" ; then
 		epatch \
@@ -115,6 +116,7 @@ src_install() {
 
 	emake install
 	dosym ${my_soname} /usr/$(get_libdir)/lib${PN}.so
+	dosym ${my_soname} /usr/$(get_libdir)/lib${PN}.a
 
 	use static-libs && \
 		dolib.a "${S}"-static/build/debug/lib${PN}{,-js-none}.a
