@@ -4,18 +4,17 @@
 
 EAPI=5
 
-inherit eutils flag-o-matic git-2 multilib toolchain-funcs
+inherit eutils flag-o-matic git-2 multilib toolchain-funcs vcs-snapshot
 
 DESCRIPTION="a lightweight PDF viewer and toolkit written in portable C"
 HOMEPAGE="http://mupdf.com/"
 EGIT_REPO_URI="git://git.ghostscript.com/mupdf.git"
-#EGIT_HAS_SUBMODULES=1
 
 LICENSE="AGPL-3"
 MY_SOVER=1.8
 SLOT="0/${MY_SOVER}"
 KEYWORDS=""
-IUSE="X vanilla curl libressl openssl static static-libs"
+IUSE="X vanilla +curl javascript libressl opengl +openssl static static-libs"
 
 LIB_DEPEND="
 	!libressl? ( dev-libs/openssl:0[static-libs?] )
@@ -26,7 +25,9 @@ LIB_DEPEND="
 	net-misc/curl[static-libs?]
 	virtual/jpeg[static-libs?]
 	X? ( x11-libs/libX11[static-libs?]
-		x11-libs/libXext[static-libs?] )"
+		x11-libs/libXext[static-libs?] )
+	javascript? ( dev-lang/mujs )
+	opengl? ( >=media-libs/glfw-3 )"
 RDEPEND="${LIB_DEPEND}"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
@@ -37,6 +38,8 @@ DEPEND="${RDEPEND}
 		x11-libs/libXdmcp[static-libs]
 		x11-libs/libxcb[static-libs] )"
 
+REQUIRED_USE="opengl? ( X !static !static-libs )"
+
 src_prepare() {
 	use hppa && append-cflags -ffunction-sections
 
@@ -45,7 +48,9 @@ src_prepare() {
 	epatch \
 		"${FILESDIR}"/${PN}-1.5-old-debian-files.patch \
 		"${FILESDIR}"/${PN}-1.3-pkg-config.patch \
-		"${FILESDIR}"/${PN}-1.5-Makerules-openssl-curl.patch
+		"${FILESDIR}"/${PN}-1.5-Makerules-openssl-curl.patch \
+		"${FILESDIR}"/${PN}-1.7a-system-mujs.patch \
+		"${FILESDIR}"/${PN}-1.8-system-glfw.patch
 
 	if has_version ">=media-libs/openjpeg-2.1:2" ; then
 		epatch \
@@ -72,9 +77,13 @@ src_prepare() {
 		-e "1iprefix = ${ED}usr" \
 		-e "1ilibdir = ${ED}usr/$(get_libdir)" \
 		-e "1idocdir = ${ED}usr/share/doc/${PF}" \
-	    -e "1iHAVE_X11 = $(usex X)" \
+		-e "1iHAVE_X11 = $(usex X)" \
 		-e "1iWANT_OPENSSL = $(usex openssl)" \
 		-e "1iWANT_CURL = $(usex curl)" \
+		-e "1iHAVE_MUJS = $(usex javascript)" \
+		-e "1iMUJS_LIBS = -lmujs" \
+		-e "1iMUJS_CFLAGS =" \
+		-e "1iHAVE_GLFW = $(usex opengl yes no)" \
 		-i Makerules || die
 
 	if use static-libs || use static ; then
