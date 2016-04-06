@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit eutils flag-o-matic git-2 multilib toolchain-funcs vcs-snapshot
+inherit eutils flag-o-matic git-2 multilib toolchain-funcs
 
 DESCRIPTION="a lightweight PDF viewer and toolkit written in portable C"
 HOMEPAGE="http://mupdf.com/"
