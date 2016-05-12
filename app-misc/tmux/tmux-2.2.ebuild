@@ -62,8 +62,6 @@ src_configure() {
 src_install() {
 	autotools-utils_src_install
 
-	newbashcomp examples/bash_completion_tmux.sh ${PN}
-
 	docinto examples
 	dodoc examples/*.conf
 
