@@ -61,17 +61,6 @@ src_configure() {
 
 src_install() {
 	autotools-utils_src_install
-
-	docinto examples
-	dodoc examples/*.conf
-
-	if use vim-syntax; then
-		insinto /usr/share/vim/vimfiles/syntax
-		doins examples/tmux.vim
-
-		insinto /usr/share/vim/vimfiles/ftdetect
-		doins "${FILESDIR}"/tmux.vim
-	fi
 }
 
 pkg_postinst() {
