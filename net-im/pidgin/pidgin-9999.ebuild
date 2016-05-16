@@ -84,7 +84,7 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
 		dbus? ( ${PYTHON_REQUIRED_USE} )"
 
 # Enable Default protocols
-DYNAMIC_PRPLS="irc,jabber,oscar"
+DYNAMIC_PRPLS="irc,jabber,oscar,facebook"
 
 # List of plugins
 #   app-accessibility/pidgin-festival
