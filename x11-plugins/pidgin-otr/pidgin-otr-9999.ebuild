@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 DOCS=( AUTHORS ChangeLog NEWS README )
 
 
-src_configure() {
+src_prepare() {
         "${WORKDIR}/${P}/autogen.sh"
 }
 
