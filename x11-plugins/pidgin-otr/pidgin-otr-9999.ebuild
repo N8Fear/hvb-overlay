@@ -27,6 +27,7 @@ DOCS=( AUTHORS ChangeLog NEWS README )
 
 
 src_prepare() {
+        eapply_user
         "${WORKDIR}/${P}/autogen.sh"
 }
 
