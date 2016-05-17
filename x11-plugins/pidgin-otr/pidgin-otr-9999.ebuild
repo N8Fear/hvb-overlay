@@ -24,3 +24,9 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
+
+
+src_configure() {
+        "${WORKDIR}/${P}/autogen.sh"
+}
+
