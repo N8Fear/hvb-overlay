@@ -21,9 +21,6 @@ fi
 
 SLOT="0"
 LICENSE="GPL-3"
-DEPEND="${RDEPEND}
-	app-text/ronn
-	"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" install
