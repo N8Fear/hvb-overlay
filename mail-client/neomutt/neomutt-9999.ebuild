@@ -169,6 +169,9 @@ src_configure() {
 	fi
 
 	econf ${myconf} || die "configure failed"
+
+  # hacky
+  sed -i Makefile -e s/ncursesw/ncursesw\ -ltinfow/
 }
 
 src_install() {
