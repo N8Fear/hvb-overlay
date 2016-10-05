@@ -1,0 +1,45 @@
+diff --git a/hw/xfree86/os-support/linux/lnx_video.c b/hw/xfree86/os-support/linux/lnx_video.c
+index c09d719..1bd19d0 100644
+--- a/hw/xfree86/os-support/linux/lnx_video.c
++++ b/hw/xfree86/os-support/linux/lnx_video.c
+@@ -116,26 +116,26 @@ hwDisableIO(void)
+ static Bool
+ hwEnableIO(void)
+ {
+-    if (ioperm(0, 1024, 1) || iopl(3)) {
+-        ErrorF("xf86EnableIOPorts: failed to set IOPL for I/O (%s)\n",
+-               strerror(errno));
+-        return FALSE;
+-    }
+-#if !defined(__alpha__)
+-    /* XXX: this is actually not trapping anything because of iopl(3)
+-     * above */
+-    ioperm(0x40, 4, 0);         /* trap access to the timer chip */
+-    ioperm(0x60, 4, 0);         /* trap access to the keyboard controller */
+-#endif
+-
++//    if (ioperm(0, 1024, 1) || iopl(3)) {
++//        ErrorF("xf86EnableIOPorts: failed to set IOPL for I/O (%s)\n",
++//               strerror(errno));
++//        return FALSE;
++//    }
++//#if !defined(__alpha__)
++//    /* XXX: this is actually not trapping anything because of iopl(3)
++//     * above */
++//    ioperm(0x40, 4, 0);         /* trap access to the timer chip */
++//    ioperm(0x60, 4, 0);         /* trap access to the keyboard controller */
++//#endif
++//
+     return TRUE;
+ }
+ 
+ static void
+ hwDisableIO(void)
+ {
+-    iopl(0);
+-    ioperm(0, 1024, 0);
++//    iopl(0);
++//    ioperm(0, 1024, 0);
+ }
+ 
+ #else /* non-IO architectures */
