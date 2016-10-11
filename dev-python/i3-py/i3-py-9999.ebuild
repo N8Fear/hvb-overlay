@@ -8,8 +8,8 @@ PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 
 inherit distutils-r1 git-r3
 
-DESCRIPTION="A PC/SC wrapper for Python."
-HOMEPAGE="http://homepage.mac.com/jlgiraud/pycsc/Pycsc.html"
+DESCRIPTION="i3 python bindings"
+HOMEPAGE="https://github.com/ziberna/i3-py.git"
 EGIT_REPO_URI="https://github.com/ziberna/i3-py.git"
 LICENSE="GPL-3"
 SLOT="0"
