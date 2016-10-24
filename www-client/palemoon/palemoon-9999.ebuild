@@ -92,7 +92,6 @@ REQUIRED_USE="
 	necko-wifi? ( dbus )"
 
 src_unpack() {
-	git-r3_fetch ${EGIT_REPO_URI} refs/tags/${GIT_TAG}
 	git-r3_checkout
 
 	# Unpack language packs:
