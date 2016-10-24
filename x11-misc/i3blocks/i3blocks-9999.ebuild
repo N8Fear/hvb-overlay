@@ -11,7 +11,7 @@ fi
 DESCRIPTION="highly flexible status line for the i3 window manager"
 HOMEPAGE="https://github.com/vivien/i3blocks"
 if [[ ${PV} = 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/vivien/${PN}"
+	EGIT_REPO_URI="https://github.com/Airblader/i3blocks-gaps.git"
 	EGIT_BOOTSTRAP=""
 	KEYWORDS=""
 else
