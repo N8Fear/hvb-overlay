@@ -9,7 +9,7 @@ inherit eutils toolchain-funcs git-2
 DESCRIPTION="An improved dynamic tiling window manager"
 HOMEPAGE="http://i3wm.org/"
 SRC_URI=""
-EGIT_REPO_URI="https://github.com/electro7/dotfiles.git"
+EGIT_REPO_URI="https://github.com/Airblader/i3.git"
 EGIT_BRANCH="gaps-next"
 
 LICENSE="BSD"
