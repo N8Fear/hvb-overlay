@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit eutils toolchain-funcs git-2
+inherit autotools eutils toolchain-funcs git-2
 
 DESCRIPTION="An improved dynamic tiling window manager"
 HOMEPAGE="http://i3wm.org/"
@@ -44,6 +44,8 @@ src_prepare() {
 	if ! use pango; then
 		sed -i common.mk -e '/PANGO/d' || die
 	fi
+
+  eautoreconf
 
 	cat <<- EOF > "${T}"/i3wm
 		#!/bin/sh
