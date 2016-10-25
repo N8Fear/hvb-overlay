@@ -56,6 +56,7 @@ src_prepare() {
 }
 
 src_compile() {
+  cd $HOST
 	emake V=1 CC="$(tc-getCC)" AR="$(tc-getAR)"
 	emake mans
 }
