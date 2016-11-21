@@ -24,6 +24,9 @@ src_prepare() {
 
 	epatch "${FILESDIR}"/"calcurse-4.1.0-tinfo.patch"
 
+	echo "${PV}" > .version
+	./autogen.sh
+
 	# Dubious tests.
 	#rm -v "${S}/test"/ical-00{2,4,6}.sh || die
 
