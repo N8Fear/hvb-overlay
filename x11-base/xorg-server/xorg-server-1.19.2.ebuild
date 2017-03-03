@@ -146,6 +146,7 @@ PATCHES=(
 	# needed for new eselect-opengl, bug #541232
 	"${FILESDIR}"/${PN}-1.18-support-multiple-Files-sections.patch
 	"${FILESDIR}"/${PN}-1.18-sysmacros.patch #580044
+	"${FILESDIR}"/${PN}-1.18.4-no-iopl-noioperm.patch # no iopl for hardened
 )
 
 pkg_pretend() {
