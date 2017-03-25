@@ -3,9 +3,10 @@
 # $Id$
 
 EAPI=5
-PYTHON_DEPEND="python? 2"
 
-inherit autotools eutils flag-o-matic python toolchain-funcs
+PYTHON_COMPAT=( python{2_7,3_4,3_5,3_6} )
+
+inherit autotools eutils flag-o-matic python-r1 toolchain-funcs
 
 DESCRIPTION="A useful collection of mail servers, clients, and filters"
 HOMEPAGE="https://www.gnu.org/software/mailutils/mailutils.html"
