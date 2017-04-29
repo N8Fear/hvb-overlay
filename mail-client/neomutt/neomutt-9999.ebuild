@@ -9,7 +9,7 @@ inherit git-r3 eutils flag-o-matic autotools
 EGIT_REPO_URI="https://github.com/neomutt/neomutt.git"
 DESCRIPTION="Bringing together all the Mutt code."
 HOMEPAGE="http://www.neomutt.org/"
-IUSE="berkdb crypt debug doc gdbm gnutls gpg hcache idn imap kerberos libressl mbox nls notmuch pop qdbm sasl selinux sidebar slang smime smtp ssl tokyocabinet"
+IUSE="berkdb crypt debug doc gdbm gnutls gpg hcache idn imap kerberos libressl -lua mbox nls notmuch pop qdbm sasl selinux sidebar slang smime smtp ssl tokyocabinet"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -100,6 +100,7 @@ src_configure() {
 		$(use_enable debug) \
 		$(use_enable gpg gpgme) \
 		$(use_enable imap) \
+		$(use_enable lua) \
 		$(use_enable hcache) \
 		$(use_enable notmuch) \
 		$(use_enable nls) \
@@ -210,7 +211,7 @@ src_install() {
 		fperms g+s /usr/bin/mutt_dotlock
 	fi
 
-	dodoc BEWARE COPYRIGHT ChangeLog NEWS OPS* PATCHES README* TODO 
+	dodoc COPYRIGHT ChangeLog OPS* PATCHES README*
 }
 
 pkg_postinst() {
