@@ -210,7 +210,7 @@ src_install() {
 	#	fperms g+s /usr/bin/mutt_dotlock
 	#fi
 
-	dodoc COPYRIGHT ChangeLog OPS* PATCHES README*
+	dodoc COPYRIGHT ChangeLog OPS* README*
 }
 
 pkg_postinst() {
