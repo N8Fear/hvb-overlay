@@ -205,10 +205,10 @@ src_install() {
 			|| ewarn "failed to remove files, please file a bug"
 	fi
 
-	if use !prefix ; then
-		fowners root:mail /usr/bin/mutt_dotlock
-		fperms g+s /usr/bin/mutt_dotlock
-	fi
+	#if use !prefix ; then
+	#	fowners root:mail /usr/bin/mutt_dotlock
+	#	fperms g+s /usr/bin/mutt_dotlock
+	#fi
 
 	dodoc COPYRIGHT ChangeLog OPS* PATCHES README*
 }
