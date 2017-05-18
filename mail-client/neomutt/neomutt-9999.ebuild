@@ -112,7 +112,6 @@ src_configure() {
 		$(use_with kerberos gss) \
 		$(use slang && echo --with-slang=${EPREFIX}/usr) \
 		$(use !slang && echo --with-curses=${EPREFIX}/usr) \
-		--enable-external-dotlock \
 		--enable-nfs-fix \
 		--sysconfdir=${EPREFIX}/etc/${PN} \
 		--with-docdir=${EPREFIX}/usr/share/doc/${PN}-${PVR} \
