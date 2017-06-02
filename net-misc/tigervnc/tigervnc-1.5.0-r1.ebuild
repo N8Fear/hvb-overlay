@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils cmake-utils autotools java-pkg-opt-2 flag-o-matic
 
