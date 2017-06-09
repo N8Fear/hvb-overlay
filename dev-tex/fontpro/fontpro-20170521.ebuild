@@ -21,7 +21,7 @@ SRC_URI="https://github.com/sebschub/FontPro/archive/${GIT_REV}.tar.gz -> ${P}.t
 LICENSE="public-domain ${ACROREAD_LICENSE}"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc +minionpro +myriadpro"
+IUSE="doc +minionpro +myriadpro +cronospro"
 REQUIRED_USE="|| ( minionpro myriadpro )"
 RESTRICT="mirror bindist"
 
@@ -29,8 +29,8 @@ RESTRICT="mirror bindist"
 DEPEND="app-text/lcdf-typetools
 	app-text/texlive-core
 	dev-tex/fontaxes
-	dev-texlive/texlive-genericextra
 	minionpro? ( dev-tex/mnsymbol )
+	cronospro? ( dev-tex/mnsymbol )
 	myriadpro? ( dev-tex/mdsymbol )
 	!dev-tex/MyriadPro
 	!dev-tex/MinionPro"
@@ -59,6 +59,7 @@ prepare_font() {
 src_prepare() {
 	use minionpro && prepare_font MinionPro
 	use myriadpro && prepare_font MyriadPro
+	use cronospro && prepare_font CronosPro
 }
 
 compile_font() {
@@ -74,6 +75,7 @@ compile_font() {
 src_compile() {
 	use minionpro && compile_font MinionPro
 	use myriadpro && compile_font MyriadPro
+	use cronospro && compile_font CronosPro
 }
 
 install_font() {
@@ -107,6 +109,11 @@ src_install() {
 		echo "MixedMap MyriadPro.map" >> "${T}/${PN}.cfg"
 	fi
 
+	if use cronospro; then
+		install_font CronosPro
+		echo "MixedMap CronosPro.map" >> "${T}/${PN}.cfg"
+	fi
+
 	insinto /etc/texmf/updmap.d
 	doins "${T}/${PN}.cfg"
 }
@@ -116,4 +123,5 @@ pkg_postinst() {
 
 	use minionpro && elog "To use MinionPro, put \\usepackage{MinionPro} in the preamble of your LaTeX document."
 	use myriadpro && elog "To use MyriadPro, put \\usepackage{MyriadPro} in the preamble of your LaTeX document."
+	use cronospro && elog "To use CronosPro, put \\usepackage{CronosPro} in the preamble of your LaTeX document."
 }
