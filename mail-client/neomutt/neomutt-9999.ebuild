@@ -107,13 +107,9 @@ src_configure() {
 		$(use_with kerberos gss) \
 		$(use slang && echo --with-slang=${EPREFIX}/usr) \
 		$(use !slang && echo --with-curses=${EPREFIX}/usr) \
-		$(use ssl && echo --with-ssl=${EPREFIX}/usr) \
-		$(use gnutls && echo --with-gnutls=${EPREFIX}/usr) \
-		--enable-nfs-fix \
 		--sysconfdir=${EPREFIX}/etc/${PN} \
 		--with-docdir=${EPREFIX}/usr/share/doc/${PN}-${PVR} \
-		--with-regex \
-		--with-exec-shell=${EPREFIX}/bin/sh"
+		"
 
 	case $CHOST in
 		*-solaris*)
@@ -130,19 +126,19 @@ src_configure() {
 	# mutt prioritizes gdbm over bdb, so we will too.
 	# hcache feature requires at least one database is in USE.
 	if use tokyocabinet; then
-		myconf="${myconf} --enable-hcache \
+		myconf="${myconf} \
 			--with-tokyocabinet --without-qdbm --without-gdbm --without-bdb"
 	elif use qdbm; then
-		myconf="${myconf} --enable-hcache \
+		myconf="${myconf} \
 			--without-tokyocabinet --with-qdbm --without-gdbm --without-bdb"
 	elif use gdbm ; then
-		myconf="${myconf} --enable-hcache \
+		myconf="${myconf} \
 			--without-tokyocabinet --without-qdbm --with-gdbm --without-bdb"
 	elif use berkdb; then
-		myconf="${myconf} --enable-hcache \
+		myconf="${myconf} \
 			--without-tokyocabinet --without-qdbm --without-gdbm --with-bdb"
 	else
-		myconf="${myconf} --disable-hcache \
+		myconf="${myconf} \
 			--without-tokyocabinet --without-qdbm --without-gdbm --without-bdb"
 	fi
 
