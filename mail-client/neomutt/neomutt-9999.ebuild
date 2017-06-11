@@ -100,7 +100,6 @@ src_configure() {
 		$(use_enable debug) \
 		$(use_enable gpg gpgme) \
 		$(use_enable lua) \
-		$(use_enable hcache) \
 		$(use_enable notmuch) \
 		$(use_enable nls) \
 		$(use_enable smime) \
