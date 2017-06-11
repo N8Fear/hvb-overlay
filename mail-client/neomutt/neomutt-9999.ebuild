@@ -99,19 +99,16 @@ src_configure() {
 		$(use_enable crypt pgp) \
 		$(use_enable debug) \
 		$(use_enable gpg gpgme) \
-		$(use_enable imap) \
 		$(use_enable lua) \
 		$(use_enable hcache) \
 		$(use_enable notmuch) \
 		$(use_enable nls) \
-		$(use_enable pop) \
-		$(use_enable sidebar) \
 		$(use_enable smime) \
-		$(use_enable smtp) \
-		$(use_with idn) \
 		$(use_with kerberos gss) \
 		$(use slang && echo --with-slang=${EPREFIX}/usr) \
 		$(use !slang && echo --with-curses=${EPREFIX}/usr) \
+		$(use ssl && echo --with-ssl=${EPREFIX}/usr) \
+		$(use gnutls && echo --with-gnutls=${EPREFIX}/usr) \
 		--enable-nfs-fix \
 		--sysconfdir=${EPREFIX}/etc/${PN} \
 		--with-docdir=${EPREFIX}/usr/share/doc/${PN}-${PVR} \
@@ -210,7 +207,7 @@ src_install() {
 	#	fperms g+s /usr/bin/mutt_dotlock
 	#fi
 
-	dodoc COPYRIGHT ChangeLog OPS* README*
+	dodoc COPYRIGHT OPS* README*
 }
 
 pkg_postinst() {
