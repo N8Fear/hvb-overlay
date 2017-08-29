@@ -202,7 +202,7 @@ src_install() {
 	#	fperms g+s /usr/bin/mutt_dotlock
 	#fi
 
-	dodoc COPYRIGHT OPS* README*
+	dodoc COPYRIGHT ABOUT-NLS CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE.md README*
 }
 
 pkg_postinst() {
