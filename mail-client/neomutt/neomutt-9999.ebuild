@@ -180,23 +180,6 @@ src_install() {
 	rm "${ED}"/etc/${PN}/mime.types
 	dosym /etc/mime.types /etc/${PN}/mime.types
 
-	# A man-page is always handy, so fake one
-	if use !doc; then
-		emake -C doc DESTDIR="${D}" muttrc.man || die
-		# make the fake slightly better, bug #413405
-		sed -e 's#@docdir@/manual.txt#http://www.mutt.org/doc/devel/manual.html#' \
-			-e 's#in @docdir@,#at http://www.mutt.org/,#' \
-			-e "s#@sysconfdir@#${EPREFIX}/etc/${PN}#" \
-			-e "s#@bindir@#${EPREFIX}/usr/bin#" \
-			doc/mutt.man > mutt.1
-		cp doc/muttrc.man muttrc.5
-		doman mutt.1 muttrc.5
-	else
-		# nuke manpages that should be provided by an MTA, bug #177605
-		rm "${ED}"/usr/share/man/man5/{mbox,mmdf}.5 \
-			|| ewarn "failed to remove files, please file a bug"
-	fi
-
 	#if use !prefix ; then
 	#	fowners root:mail /usr/bin/mutt_dotlock
 	#	fperms g+s /usr/bin/mutt_dotlock
