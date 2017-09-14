@@ -180,6 +180,18 @@ src_install() {
 	rm "${ED}"/etc/${PN}/mime.types
 	dosym /etc/mime.types /etc/${PN}/mime.types
 
+	# A man-page is always handy, so fake one
+	if use !doc; then
+		# make the fake slightly better, bug #413405
+		doc/neomutt.man > neomutt.1
+		cp doc/neomuttrc.man neomuttrc.5
+		doman neomutt.1 neomuttrc.5
+	else
+		# nuke manpages that should be provided by an MTA, bug #177605
+		rm "${ED}"/usr/share/man/man5/{mbox,mmdf}.5 \
+			|| ewarn "failed to remove files, please file a bug"
+	fi
+
 	#if use !prefix ; then
 	#	fowners root:mail /usr/bin/mutt_dotlock
 	#	fperms g+s /usr/bin/mutt_dotlock
