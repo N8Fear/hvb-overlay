@@ -14,7 +14,6 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="gtk"
-REQUIRED_USE="gtk? ( python_targets_python2_7 )" # experimental gui only works with py2
 
 DEPEND="
 	>=dev-python/msgpack-0.4.0[${PYTHON_USEDEP}]
