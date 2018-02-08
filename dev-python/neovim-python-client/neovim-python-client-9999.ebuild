@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_3,3_4,3_5} )
+PYTHON_COMPAT=( python{2_7,3_5,3_6} )
 inherit distutils-r1 git-2
 
 DESCRIPTION="Python client for Neovim"
@@ -19,7 +19,7 @@ REQUIRED_USE="gtk? ( python_targets_python2_7 )" # experimental gui only works w
 DEPEND="
 	>=dev-python/msgpack-0.4.0[${PYTHON_USEDEP}]
 	virtual/python-greenlet[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/trollius[${PYTHON_USEDEP}]' python{2_7,3_3})
+	$(python_gen_cond_dep 'dev-python/trollius[${PYTHON_USEDEP}]' python{2_7,3_5,3_6})
 	gtk? (
 		>=dev-python/click-3.0[${PYTHON_USEDEP}]
 		dev-python/pygobject:2
