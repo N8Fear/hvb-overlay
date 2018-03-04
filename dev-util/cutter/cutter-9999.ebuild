@@ -32,5 +32,5 @@ RDEPEND="${DEPEND}"
 CMAKE_USE_DIR="${S}/src"
 
 src_install() {
-	dobin "$BUILD_DIR/cutter"
+	dobin "$BUILD_DIR/Cutter"
 }
