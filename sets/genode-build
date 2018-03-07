@@ -1,0 +1,12 @@
+#app-cdr/cdrtools
+dev-embedded/openocd
+dev-libs/libelf
+dev-libs/libisoburn
+dev-python/future
+dev-tcltk/expect
+net-dialup/minicom
+net-ftp/atftp
+sys-apps/mawk
+sys-apps/nawk
+sys-block/parted
+sys-boot/syslinux
