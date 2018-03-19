@@ -1,6 +1,6 @@
 #app-cdr/cdrtools
 dev-embedded/openocd
-dev-libs/libelf
+virtual/libelf
 dev-libs/libisoburn
 dev-python/future
 dev-tcltk/expect
