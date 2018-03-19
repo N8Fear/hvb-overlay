@@ -1,1 +1,4 @@
 app-emulation/libvirt
+net-misc/bridge-utils
+net-misc/tigervnc
+net-misc/bridge-utils
