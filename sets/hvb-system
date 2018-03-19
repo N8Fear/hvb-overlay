@@ -1,0 +1,3 @@
+net-wireless/wpa_supplicant
+net-misc/dhcpcd
+sys-power/thermald

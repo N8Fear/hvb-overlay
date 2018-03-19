@@ -36,3 +36,4 @@ media-fonts/ubuntu-font-family
 x11-misc/slim
 x11-misc/slim
 media-video/mpv
+media-sound/alsa-utils
