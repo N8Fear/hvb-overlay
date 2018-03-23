@@ -1,5 +1,6 @@
 app-admin/needrestart
 app-admin/sudo
+app-portage/smart-live-rebuild
 net-misc/dhcpcd
 net-wireless/wpa_supplicant
 sys-power/thermald
