@@ -1,8 +1,9 @@
 #app-cdr/cdrtools
 dev-embedded/openocd
-virtual/libelf
+dev-embedded/u-boot-tools
 dev-libs/libisoburn
 dev-python/future
+dev-python/tempita
 dev-tcltk/expect
 net-dialup/minicom
 net-ftp/atftp
@@ -10,3 +11,4 @@ sys-apps/mawk
 sys-apps/nawk
 sys-block/parted
 sys-boot/syslinux
+virtual/libelf

@@ -1,4 +1,5 @@
-net-wireless/wpa_supplicant
-net-misc/dhcpcd
-sys-power/thermald
 app-admin/needrestart
+app-admin/sudo
+net-misc/dhcpcd
+net-wireless/wpa_supplicant
+sys-power/thermald
