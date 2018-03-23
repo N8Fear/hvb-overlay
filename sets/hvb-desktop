@@ -5,9 +5,10 @@ app-admin/keepassxc
 app-editors/emacs
 app-editors/neovim
 app-editors/vim
+app-text/texlive
 app-text/zathura-meta
-dev-tex/biblatex
 dev-libs/sway
+dev-tex/biblatex
 mail-client/neomutt
 media-fonts/liberation-fonts
 media-fonts/nerd-fonts
@@ -15,12 +16,15 @@ media-fonts/powerline-fonts
 media-fonts/powerline-symbols
 media-fonts/ubuntu-font-family
 media-gfx/feh
+media-gfx/grub2-icons
+media-gfx/grub2-theme-gentoo
 media-sound/alsa-utils
 media-video/mpv
 net-im/signal-desktop-bin
 net-irc/weechat
 net-misc/youtube-dl
 net-wireless/wireless-tools
+sys-apps/ripgrep
 www-client/elinks
 www-client/firefox
 www-client/w3m
