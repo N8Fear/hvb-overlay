@@ -4,6 +4,7 @@ app-admin/sudo
 app-admin/syslog-ng
 app-arch/lzop
 app-misc/tmux
+app-misc/tmux-mem-cpu-load
 app-portage/eix
 app-portage/gentoolkit
 app-portage/layman
