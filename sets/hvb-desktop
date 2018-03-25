@@ -5,6 +5,7 @@ app-admin/keepassxc
 app-editors/emacs
 app-editors/neovim
 app-editors/vim
+app-text/dvipng
 app-text/texlive
 app-text/zathura-meta
 dev-libs/sway
@@ -24,6 +25,7 @@ net-im/signal-desktop-bin
 net-irc/weechat
 net-misc/youtube-dl
 net-wireless/wireless-tools
+sys-apps/lm_sensors
 sys-apps/ripgrep
 www-client/elinks
 www-client/firefox
