@@ -1,3 +1,4 @@
 app-shells/zsh
 dev-utils/cppcheck
 dev-vcs/tig
+sys-devel/gdb
