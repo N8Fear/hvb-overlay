@@ -9,9 +9,8 @@ app-text/dvipng
 app-text/texlive
 app-text/zathura-meta
 dev-libs/sway
+dev-python/urlscan
 dev-tex/biblatex
-sys-power/acpi
-net-misc/nextcloud-client
 mail-client/neomutt
 media-fonts/liberation-fonts
 media-fonts/nerd-fonts
@@ -25,10 +24,12 @@ media-sound/alsa-utils
 media-video/mpv
 net-im/signal-desktop-bin
 net-irc/weechat
+net-misc/nextcloud-client
 net-misc/youtube-dl
 net-wireless/wireless-tools
 sys-apps/lm_sensors
 sys-apps/ripgrep
+sys-power/acpi
 www-client/elinks
 www-client/firefox
 www-client/w3m
