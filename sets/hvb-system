@@ -13,9 +13,13 @@ net-firewall/iptables
 net-misc/dhcpcd
 net-wireless/wpa_supplicant
 sys-apps/gptfdisk
+sys-apps/progress
+sys-apps/smartmontools
 sys-boot/grub
 sys-firmware/intel-microcode
+sys-fs/btrfs-progs
 sys-fs/cryptsetup
+sys-power/pm-utils
 sys-power/thermald
 sys-process/cronie
 sys-process/htop

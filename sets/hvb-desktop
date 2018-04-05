@@ -10,6 +10,8 @@ app-text/texlive
 app-text/zathura-meta
 dev-libs/sway
 dev-tex/biblatex
+sys-power/acpi
+net-misc/nextcloud-client
 mail-client/neomutt
 media-fonts/liberation-fonts
 media-fonts/nerd-fonts
