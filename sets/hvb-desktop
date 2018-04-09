@@ -11,6 +11,7 @@ app-text/zathura-meta
 dev-libs/sway
 dev-python/urlscan
 dev-tex/biblatex
+dev-tex/fontpro
 mail-client/neomutt
 media-fonts/liberation-fonts
 media-fonts/nerd-fonts
