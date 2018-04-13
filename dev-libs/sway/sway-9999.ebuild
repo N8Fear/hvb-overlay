@@ -6,7 +6,6 @@ EAPI=6
 inherit git-r3 eutils meson
 
 EGIT_REPO_URI="https://github.com/swaywm/sway.git"
-EGIT_BRANCH="wlroots"
 
 LICENSE="MIT"
 SLOT="0"
