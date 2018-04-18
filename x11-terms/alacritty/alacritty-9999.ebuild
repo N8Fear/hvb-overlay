@@ -110,6 +110,7 @@ rand-0.4.2
 redox_syscall-0.1.37
 redox_termios-0.1.1
 regex-0.2.7
+regex-syntax-0.4.2
 regex-syntax-0.5.0
 safemem-0.2.0
 same-file-1.0.2
