@@ -2,3 +2,4 @@ app-shells/zsh
 dev-util/cppcheck
 dev-vcs/tig
 sys-devel/gdb
+x11-apps/xinput

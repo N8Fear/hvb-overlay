@@ -21,12 +21,15 @@ media-fonts/ubuntu-font-family
 media-gfx/feh
 media-gfx/grub2-icons
 media-gfx/grub2-theme-gentoo
+media-gfx/inkscape
+media-gfx/nomacs
 media-sound/alsa-utils
 media-video/mpv
 net-im/signal-desktop-bin
 net-irc/weechat
 net-misc/nextcloud-client
 net-misc/youtube-dl
+net-print/brother-hl3150cdw-bin
 net-wireless/wireless-tools
 sys-apps/lm_sensors
 sys-apps/ripgrep
