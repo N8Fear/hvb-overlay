@@ -1,7 +1,7 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
 inherit git-r3
 
@@ -18,5 +18,6 @@ DEPEND="dev-libs/riscv-fesvr"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	sed -i -e 's:$(INSTALLDIR)/lib:$(INSTALLDIR)/$(LIBDIR):' Makefile.in || die
+	sed -i -e "s:$(INSTALLDIR)/lib:$(INSTALLDIR)/$(get_libdir):" Makefile.in || die
+	eapply_user
 }
