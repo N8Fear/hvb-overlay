@@ -49,7 +49,7 @@ src_install() {
 	# - intel-ucode/
 	# In some cases, they have not contained the same content (eg the directory has newer stuff).
 	MICROCODE_SRC=(
-		"${S}"/microcode.dat
+#		"${S}"/microcode.dat
 		"${S}"/intel-ucode/
 	)
 	opts=(
@@ -69,6 +69,8 @@ src_install() {
 	use initramfs && dodir /boot && opts+=( --write-earlyfw="${ED%/}"/boot/intel-uc.img )
 	# split location:
 	use split-ucode && dodir /lib/firmware/intel-ucode && opts+=( --write-firmware="${ED%/}"/lib/firmware/intel-ucode )
+
+	rm ${S}/intel-ucode/list
 
 	iucode_tool \
 		"${opts[@]}" \
