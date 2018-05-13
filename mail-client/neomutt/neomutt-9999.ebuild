@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -25,7 +25,14 @@ IUSE="berkdb crypt doc gdbm gnutls gpg gpgme idn kerberos kyotocabinet
 
 CDEPEND="
 	app-misc/mime-types
-	berkdb? ( >=sys-libs/db-4:= )
+	berkdb? (
+		|| (
+			sys-libs/db:6.2
+			sys-libs/db:5.3
+			sys-libs/db:4.8
+		)
+		<sys-libs/db-6.3:=
+	)
 	gdbm? ( sys-libs/gdbm )
 	kyotocabinet? ( dev-db/kyotocabinet )
 	lmdb? ( dev-db/lmdb )
@@ -99,20 +106,16 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" install
 
-	# A man-page is always handy, so fake one
-	#if use !doc; then
-	#	emake -C doc neomuttrc.man
-	#	# make the fake slightly better, bug #413405
-	#	sed -e 's#@docdir@/manual.txt#http://www.neomutt.org/guide#' \
-	#		-e 's#in @docdir@,#at http://www.neomutt.org/,#' \
-	#		-e "s#@sysconfdir@#${EPREFIX}/etc/${PN}#" \
-	#		-e "s#@bindir@#${EPREFIX}/usr/bin#" \
-	#		doc/neomutt.man > neomutt.1 || die
-	#	cp doc/neomuttrc.man neomuttrc.5 || die
-	#	doman neomutt.1 neomuttrc.5
-	#fi
+	# A man-page is always handy, so fake one – here neomuttrc.5
+	# (neomutt.1 already exists)
+	if use !doc; then
+		sed -n '/^\(SRCDIR\|EXEEXT\|CC_FOR_BUILD\)\s*=/p;$a\\n' \
+			Makefile > doc/Makefile.fakedoc || die
+		sed -n '/^\(MAKEDOC_CPP\s*=\|doc\/\(makedoc$(EXEEXT)\|neomuttrc.man\):\)/,/^[[:blank:]]*$/p' \
+			doc/Makefile.autosetup >> doc/Makefile.fakedoc || die
+	fi
 
-	dodoc COPYRIGHT LICENSE* ChangeLog* README*
+	dodoc LICENSE* ChangeLog* README*
 }
 
 pkg_postinst() {
