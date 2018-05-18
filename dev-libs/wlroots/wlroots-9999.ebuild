@@ -10,7 +10,7 @@ SLOT="0"
 IUSE="libcap systemd elogind xwayland"
 
 #deps missing
-#DEPEND
+DEPEND=">=dev-libs/wayland-protocols-1.14"
 
 
 src_configure() {
