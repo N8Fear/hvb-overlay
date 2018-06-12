@@ -4,7 +4,7 @@
 app-admin/keepassxc
 app-editors/emacs
 app-editors/neovim
-app-editors/vim
+#app-editors/vim
 app-text/dvipng
 app-text/texlive
 app-text/zathura-meta
@@ -44,14 +44,9 @@ x11-apps/xrandr
 x11-base/xorg-server
 x11-libs/libvdpau-va-gl
 x11-misc/dmenu
-x11-misc/i3blocks
-x11-misc/i3lock
-x11-misc/i3status
 x11-misc/rofi
 x11-misc/slim
-x11-misc/slim
 x11-misc/slock
-x11-misc/xautolock
 x11-misc/xcape
 x11-misc/xclip
 x11-misc/xsel
