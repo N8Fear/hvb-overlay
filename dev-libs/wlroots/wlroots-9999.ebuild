@@ -19,6 +19,7 @@ src_configure() {
 		-Denable_systemd=$(usex systemd true false)
 		-Denable_elogind=$(usex elogind true false)
 		-Denable_xwayland=$(usex xwayland true false)
+		-Denable-examples=false
 	)
 	meson_src_configure
 }
