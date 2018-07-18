@@ -2,11 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-themes/tango-icon-theme/tango-icon-theme-0.8.1.ebuild,v 1.8 2008/03/21 06:18:04 drac Exp $
 
+EAPI=6
+
 inherit eutils gnome2-utils
 
 DESCRIPTION="Official cursor theme from Ubuntu Linux"
 HOMEPAGE="http://www.ubuntu.com"
-SRC_URI="http://archive.ubuntu.com/ubuntu/pool/main/d/dmz-cursor-theme/dmz-cursor-theme_${PV}.tar.gz"
+SRC_URI="http://http.debian.net/debian/pool/main/d/dmz-cursor-theme/dmz-cursor-theme_${PV}.tar.xz"
 
 LICENSE="CCPL-Attribution-ShareAlike-2.5"
 SLOT="0"
@@ -16,8 +18,7 @@ RESTRICT="binchecks strip"
 
 RDEPEND=">=x11-misc/icon-naming-utils-0.8.2
 	media-gfx/imagemagick
-	>=gnome-base/librsvg-2.12.3
-	>=x11-themes/hicolor-icon-theme-0.9"
+	>=gnome-base/librsvg-2.12.3"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	dev-util/intltool
