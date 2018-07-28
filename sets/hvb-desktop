@@ -1,11 +1,11 @@
 #app-admin/conky
-#app-text/fbreader
 #www-client/qutebrowser
 app-admin/keepassxc
 app-editors/emacs
 app-editors/neovim
-#app-editors/vim
+app-editors/vim
 app-text/dvipng
+app-text/fbreader
 app-text/texlive
 app-text/zathura-meta
 dev-libs/sway
@@ -31,6 +31,7 @@ net-misc/nextcloud-client
 net-misc/youtube-dl
 net-print/brother-hl3150cdw-bin
 net-wireless/wireless-tools
+sci-visualization/gnuplot
 sys-apps/lm_sensors
 sys-apps/ripgrep
 sys-power/acpi
