@@ -1,5 +1,6 @@
 app-shells/zsh
 dev-util/cppcheck
+dev-utils/bear
 dev-vcs/tig
 sys-devel/crossdev
 sys-devel/gdb
