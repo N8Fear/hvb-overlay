@@ -1,4 +1,5 @@
 #app-cdr/cdrtools
+sys-libs/ncurses:5
 dev-embedded/openocd
 dev-embedded/u-boot-tools
 dev-libs/libisoburn
