@@ -35,17 +35,17 @@ src_configure() {
 	sed -i -e '/werror/s/true/false/' meson.build || die
 
 	local emesonargs=(
-		-Denable-swaybar=$(usex swaybar)
-		-Denable-swaybg=$(usex swaybg)
-		-Denable-swaygrab=$(usex swaygrab)
-		-Denable-swaylock=$(usex swaylock)
-		-Denable-swaymsg=$(usex swaymsg)
-		-Denable-tray=$(usex tray)
+		-Denable-swaybar=$(usex swaybar true false)
+		-Denable-swaybg=$(usex swaybg true false)
+		-Denable-swaygrab=$(usex swaygrab true false)
+		-Denable-swaylock=$(usex swaylock true false)
+		-Denable-swaymsg=$(usex swaymsg true false)
+		-Denable-tray=$(usex tray true false)
 
-		-Ddefault-wallpaper=$(usex wallpapers)
+		-Ddefault-wallpaper=$(usex wallpapers true false)
 
-		-Denable-gdk-pixbuf=$(usex gdk-pixbuf)
-		-Dzsh-completions=$(usex zsh-completion)
+		-Denable-gdk-pixbuf=$(usex gdk-pixbuf true false)
+		-Dzsh-completions=$(usex zsh-completion true false)
 
 		-DCMAKE_INSTALL_SYSCONFDIR="/etc"
 	)
