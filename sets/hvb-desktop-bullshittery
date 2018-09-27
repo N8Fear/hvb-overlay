@@ -1,7 +1,9 @@
-app-office/libreoffice
-www-client/google-chrome-unstable
-sys-apps/the_silver_searcher
-media-gfx/simple-scan
-media-gfx/gimp
-dev-util/strace
+app-emulation/virtualbox
 app-misc/gtypist
+app-office/libreoffice
+dev-util/strace
+media-gfx/gimp
+media-gfx/simple-scan
+sys-apps/the_silver_searcher
+www-client/qutebrowser
+www-client/vivaldi
