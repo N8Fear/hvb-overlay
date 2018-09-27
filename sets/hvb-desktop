@@ -1,7 +1,7 @@
 #app-admin/conky
 #www-client/qutebrowser
 app-admin/keepassxc
-app-editors/emacs
+app-editors/emacs-vcs
 app-editors/neovim
 app-editors/vim
 app-text/dvipng
@@ -49,6 +49,7 @@ x11-misc/dmenu
 x11-misc/rofi
 x11-misc/slim
 x11-misc/slock
+x11-misc/slop
 x11-misc/xcape
 x11-misc/xclip
 x11-misc/xsel
