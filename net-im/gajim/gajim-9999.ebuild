@@ -36,8 +36,9 @@ RDEPEND="${COMMON_DEPEND}
 	dev-python/pycurl[${PYTHON_USEDEP}]
 	dev-python/qrcode[${PYTHON_USEDEP}]
 	dev-python/pyasn1[${PYTHON_USEDEP}]
+  >=dev-python/precis-i18n-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pyopenssl-0.14[${PYTHON_USEDEP}]
-	>=dev-python/python-nbxmpp-0.5.3[${PYTHON_USEDEP}]
+	>=dev-python/python-nbxmpp-0.6.8[${PYTHON_USEDEP}]
 	crypt? (
 		app-crypt/gnupg
 		dev-python/python-gnupg[${PYTHON_USEDEP}]
