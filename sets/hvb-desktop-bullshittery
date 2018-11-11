@@ -1,8 +1,13 @@
 app-misc/gtypist
 app-office/libreoffice
+app-text/calibre
+app-text/wv2
 dev-util/strace
 media-gfx/gimp
 media-gfx/simple-scan
-sys-apps/the_silver_searcher
+net-im/gajim
+net-im/gajim-omemo
+net-im/pidgin
 www-client/qutebrowser
 www-client/vivaldi
+x11-misc/synergy
